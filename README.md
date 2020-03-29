@@ -6,5 +6,5 @@ Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado 
 - [José Danrley da Silva](https://github.com/JDanrley)
 - [Luis Guilherme Belem de Sousa](https://github.com/LuisGuilhermeSousa)
 - [Matheus Amauri de Jesus Campos](https://github.com/MatheusCampos-450)
-- Washington Henrique Fernandes de Sousa
+- Washington Henrique Fernandes de Sousa (github: justhenrique) 
 
