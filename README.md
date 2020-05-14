@@ -18,7 +18,17 @@ Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado 
 ## Objetivo
 Um trabalho acadêmico realizado por alunos da Fatec São José dos Campos – Profº Jessen Vidal em parceiria com a empresa SPC Brasil. 
 
-O intuito do trabalho é realizar uma analise de dados referente à uma remessa de dados fornecida pelo SPC Brasil e, a partir dos indicadores de qualidade e negócio, extrair requisitos para o nosso algoritmo e fazer um levantamento e tratamento com esta remessa de dados.
+O intuito do trabalho é realizar uma analise de dados referente à uma remessa de dados fornecida pelo SPC Brasil e, a partir dos indicadores de qualidade e negócio, extrair requisitos para o nosso algoritmo e fazer um levantamento e tratamento com essa remessa de dados. A partir desses requisitos, nosso código deve filtrar os dados e as fazer alterações necessárias para garantir que os indicadores sejam atingidos.
+
+
+## Indicadores de Qualidade
+-	Integridade
+-	Recência
+-	Confidencialidade
+-	Confiabilidade
+-	Completude
+-	Consistência 
+
 
 
 ## Tabelas
