@@ -40,7 +40,8 @@ Nós recebemos do SPC Brasil as seguintes tabelas para a análise do lote de dad
 -	Tabela Pagamento: STG_PGT
 
 ## Nossos cards para as entregas
-[cards](https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true)
+Aqui você pode acompanhar como está o andamento do projeto.
+[Progresso do Projeto](https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true)
 
 
 ## Ferramentas utilizadas
