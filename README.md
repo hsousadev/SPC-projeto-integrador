@@ -39,6 +39,9 @@ Nós recebemos do SPC Brasil as seguintes tabelas para a análise do lote de dad
 -	Tabela Operação: STG_OPR_ITT
 -	Tabela Pagamento: STG_PGT
 
+## Nossos cards para as entregas
+[cards](https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true)
+
 
 ## Ferramentas utilizadas
 Para realizar a análise dos dados e corrigir quaisquer defeitos encontrados neles, utilizamos a biblioteca Pandas que nos permitiu, de maneira mais prática e intuitiva, realizar uma análise completa dos dados, seguindo os indicadores.
