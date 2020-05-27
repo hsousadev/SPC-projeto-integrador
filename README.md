@@ -41,7 +41,7 @@ Nós recebemos do SPC Brasil as seguintes tabelas para a análise do lote de dad
 
 ## Nossos cards para as entregas
 Aqui você pode acompanhar como está o andamento do projeto.
-<a href='https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true' target="_blank">Progresso do Projetooo</a>
+[Progresso do Projetooo].(https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true)
 
 
 
