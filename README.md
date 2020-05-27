@@ -45,10 +45,11 @@ Aqui você pode acompanhar como está o andamento do projeto.
 
 
 ## Entregas
-As esntregas do projeto estão distribuidas em 6 entregas que serão feitas ao longo do semestre
-[Entrega 1](https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%201)
+As esntregas do projeto estão distribuidas em 6 entregas que serão feitas ao longo do semestre.
 
-[Entrega 2](https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%202)
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%201'>Entrega 1</a>
+
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%202'>Entrega 2</a>
 
 
 ## Ferramentas utilizadas
