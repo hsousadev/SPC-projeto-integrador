@@ -51,6 +51,14 @@ As esntregas do projeto estão distribuidas em 6 entregas que serão feitas ao l
 
 - <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%202'>Entrega 2</a>
 
+- <a href='...'>Entrega 3</a>
+
+- <a href='...'>Entrega 4</a>
+
+- <a href='...'>Entrega 5</a>
+
+- <a href='...'>Entrega 6</a>
+
 
 ## Ferramentas utilizadas
 Para realizar a análise dos dados e corrigir quaisquer defeitos encontrados neles, utilizamos a biblioteca Pandas que nos permitiu, de maneira mais prática e intuitiva, realizar uma análise completa dos dados, seguindo os indicadores.
