@@ -43,11 +43,13 @@ Nós recebemos do SPC Brasil as seguintes tabelas para a análise do lote de dad
 Aqui você pode acompanhar como está o andamento do projeto.
 [Progresso do Projetooo](https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true)
 
-##Entregas
+
+## Entregas
 As esntregas do projeto estão distribuidas em 6 entregas que serão feitas ao longo do semestre
 [Entrega 1](https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%201)
 
 [Entrega 2](https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%202)
+
 
 ## Ferramentas utilizadas
 Para realizar a análise dos dados e corrigir quaisquer defeitos encontrados neles, utilizamos a biblioteca Pandas que nos permitiu, de maneira mais prática e intuitiva, realizar uma análise completa dos dados, seguindo os indicadores.
