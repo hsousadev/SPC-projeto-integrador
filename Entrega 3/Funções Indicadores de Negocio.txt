@@ -1,0 +1,13 @@
+def função_negocio_movimento(dataframe):
+    return dataframe["vlr_saldo"].sum(), dataframe["vlr_total_fat"].sum(), dataframe["vlr_min_fat"].sum(),dataframe["vlr_parcela_fat"].sum(), dataframe["qtd_movi"].sum()
+
+
+def função_negocio_pagamento(dataframe):
+    data, cont = str(date.today()).replace('-', ''), 0
+    for vencimento in dataframe["data_vencimento"]:
+        vencimento = str(vencimento)
+        vencimento = vencimento[4:] + vencimento[2:4] + vencimento[:2]
+        if vencimento < data:
+            cont += 1
+
+    return dataframe["vlr_pago"].sum(), dataframe["qtd_pagamento"].sum(), cont
