@@ -1,3 +1,5 @@
+![Imagem-git](https://user-images.githubusercontent.com/56441318/83182121-3afbba80-a0fc-11ea-9ca4-3d58ad1f4091.jpg)
+
 # SPC-projeto-integrador
 Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado pelo 2º Semetre do curso de Análise e Desenvolvimento de Sistemas na FATEC de São José dos Campors para o Serviço de Proteção ao Crédito - SPC
 
