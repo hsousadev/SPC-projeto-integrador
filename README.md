@@ -41,6 +41,9 @@ Nós recebemos do SPC Brasil as seguintes tabelas para a análise do lote de dad
 -	Tabela Operação: STG_OPR_ITT
 -	Tabela Pagamento: STG_PGT
 
+## Diagrama de caso de uso
+![Untitled Diagram](https://user-images.githubusercontent.com/56441318/83183368-10aafc80-a0fe-11ea-8ae4-380516ab6164.png)
+
 ## Nossos cards para as entregas
 Aqui você pode acompanhar como está o andamento do projeto.
 [Progresso do Projeto](https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true)
