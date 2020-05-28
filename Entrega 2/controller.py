@@ -184,4 +184,5 @@ def valida_idfonte(dataframe):
       porcentagem = (len(invalidos) / len(amostra)) * 100
       print(f"{porcentagem}% dos ID's da tabela de {dataframe.nome} não estão referenciados na tabela de fontes. Os ID's incorretos estão listados abaixo:")
       print(invalidos)
-
+      
+print("teste")
