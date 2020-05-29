@@ -2,7 +2,7 @@
 
 # ENTREGA 2 (Sprint 2)
 
-### Obejetivo
+### Objetivo
 <p>Nesta entrega ocorreram aalgumas adaptações e melhorias referentes ao que já hávido entregue de valor na primeira sprint.</p>
 <p>Adaptamos os algoritmos já realizados anteriormente para um novo software: Jupyte Notebook. Utilizando Pandas para a melhor análise e manipulação dos daods enviados.</p>
 
