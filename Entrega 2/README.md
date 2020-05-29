@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/57918707/81295850-6e8c7d00-9047-11ea-98ea-f68549174851.png)
 
-# Entrega 2
+# ENTREGA 2 (Sprint 2)
 
 ### Obejetivo
 <p>Nesta entrega ocorreram aalgumas adaptações e melhorias referentes ao que já hávido entregue de valor na primeira sprint.</p>
