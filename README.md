@@ -1,6 +1,7 @@
 ![Imagem-git](https://user-images.githubusercontent.com/56441318/83182121-3afbba80-a0fc-11ea-9ca4-3d58ad1f4091.jpg)
 
-# SPC-projeto-integrador
+# PROJETO INTEGRADOR 
+## FATEC SÃO JOSÉ DOS CAMPOS - SPC BRASIL
 Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado pelo 2º Semetre do curso de Análise e Desenvolvimento de Sistemas na FATEC de São José dos Campors para o Serviço de Proteção ao Crédito - SPC
 
 ## Integrantes
@@ -31,6 +32,11 @@ O intuito do trabalho é realizar uma analise de dados referente à uma remessa 
 -	Completude
 -	Consistência 
 
+## Indicadores de Negócio
+- Operação
+- Movimentação
+- Pagamentos
+- Erros
 
 
 ## Tabelas
@@ -56,7 +62,7 @@ As entregas do projeto estão distribuidas em 6 entregas que serão feitas ao lo
 
 - <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%202'>Entrega 2</a>
 
-- <a href='...'>Entrega 3</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%203'>Entrega 3</a>
 
 - <a href='...'>Entrega 4</a>
 
