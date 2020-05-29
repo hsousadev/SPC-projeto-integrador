@@ -135,7 +135,7 @@ def valida_modalidade(dataframe, exibir = True):
     
     else:
         if exibir:
-            print(f"{porcentagem}% dos ID's da tabela de {dataframe.nome} não estão referenciados na tabela de fontes. Os ID's incorretos estão listados abaixo:\n{str(faltante)[1:-1]}")
+            print(f"{porcentagem}% dos ID's da tabela de {dataframe.nome} não estão referenciados na tabela de fontes. Os ID's incorretos estão listados abaixo:\n{str(invalidos)[1:-1]}")
         return porcentagem
 
 def formata_data_vencimento(DataFrame):
@@ -146,7 +146,7 @@ def formata_data_vencimento(DataFrame):
             dia = str(i)[0:2]
             mes = str(i)[2:4]
             ano = str(i)[4:]
-            if int(dia) < 32 and int(mes) < 13:
+            if int(dia) < 32 and int(mes) < 13 and int(ano) > 0:
                 dat = str(i)[0:2] + '-' + str(i)[2:4] + '-' + str(i)[4:]
             else:
                 dat = 'Data possui informações invalidas'
