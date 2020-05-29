@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/57918707/81295850-6e8c7d00-9047-11ea-98ea-f68549174851.png)
 
-# Entrega 1
+# Entrega 1 (Sprint 1)
 
 ### Objetivo
 <p>Para esta entrega, tivemos como ideia inicial a construção de uma aplicação que, recebe os lotes de dados, os analisa e faz as alterações necessárias e por fim exibe ao usuário os indicadores correspondentes. Além disso, nosso código irá manipular e analisar os dados diretamente de um banco de dados em SQL, integrado a aplicação construída.</p>
