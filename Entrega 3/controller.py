@@ -12,7 +12,7 @@ fonte = pd.read_excel('../dados/STG_FNT_ITT.xlsx')
 modalidade.columns = ['id_mod', 'codigo_mod', 'descri_mod', 'DAT_INC_DBO']
 pagamento.columns = ['id_pagamento', 'vlr_pago', 'data_vencimento', 'codigo_mod', 'qtd_clientes', 'qtd_pagamento', 'id_fonte', 'tipo_pessoa', 'DAT_RSS_FNT_ITT', 'DAT_INC_DBO']
 movimento.columns = ['id_movi', 'vlr_saldo', 'vlr_total_fat', 'vlr_min_fat', 'vlr_parcela_fat', 'qtd_clientes', 'qtd_movi', 'tipo_pessoa', 'id_fonte', 'codigo_mod', 'DAT_RSS_FNT_ITT', 'DAT_INC_DBO']
-operacao.columns = ['id_operacao', 'vlr_contrato', 'qtd_parcelas', 'vlr_pendente', 'qtd_clientes', 'qtd_operacao', 'id_fonte', 'codigo_mod', 'tipo_pessoa', 'DAT_RSS_FNT_ITT', 'DAT_INC_DBO']
+operacao.columns = ['id_operacao', 'vlr_contrato', 'qtd_parcelas', 'vlr_pendente', 'qtd_clientes', 'qtd_operacao', 'id_fonte', 'id_mod', 'tipo_pessoa', 'DAT_RSS_FNT_ITT', 'DAT_INC_DBO']
 fonte.columns = ['id_fonte', 'cnpj', 'complemento', 'NOM_COM', 'NOM_RAZ_SCL', 'DAT_INC_DBO']
 
 def plot_completude(DataFrame):
@@ -104,7 +104,7 @@ def valida_cnpj():
   plt.bar(x3, y3, label = 'Total', color = 'y')
   plt.legend()
   plt.show()
-
+  
 def gap_id(df):
     IDs = df[df.columns[0]].to_list()
     padrao = range(min(IDs), max(IDs) + 1)
@@ -186,12 +186,12 @@ def valida_idfonte(dataframe):
       print(invalidos)
       
 
-def função_negocio_movimento(dataframe):
-    return dataframe["vlr_saldo"].sum(), dataframe["vlr_total_fat"].sum(), dataframe["vlr_min_fat"].sum(),dataframe["vlr_parcela_fat"].sum(), dataframe["qtd_movi"].sum()
+def negocio_movimento(dataframe):
+    return {'Total utilizado': dataframe["vlr_saldo"].sum(), 'Total fatura': dataframe["vlr_total_fat"].sum(), 'Total mínimo da fatura': dataframe["vlr_min_fat"].sum(), 'Total da parcela': dataframe["vlr_parcela_fat"].sum(), 'Quantidade de movimentações': dataframe["qtd_movi"].sum()}
 
 
-def função_negocio_pagamento(dataframe):
-    data, cont = str(date.today()).replace('-', ''), 0
+def negocio_pagamento(dataframe):
+    data, cont = str(datetime.date.today()).replace('-', ''), 0
     for vencimento in dataframe["data_vencimento"]:
         vencimento = str(vencimento)
         vencimento = vencimento[4:] + vencimento[2:4] + vencimento[:2]
@@ -199,3 +199,61 @@ def função_negocio_pagamento(dataframe):
             cont += 1
 
     return dataframe["vlr_pago"].sum(), dataframe["qtd_pagamento"].sum(), cont
+
+def plot_pagamentos():
+    valores = negocio_pagamento(pagamento)
+    plt.style.use("ggplot")
+    plt.figure(figsize = (10,10))
+    plt.title(f"Indicador de negócio - Pagamentos")
+    nomes = ['Valor total de pagamentos', 'Quantidade de registros vencidos', 'Quantidade de Pagamentos']
+    
+    for i in range(3):
+        
+        plt.bar(nomes[i], valores[i], color = 'royalblue')
+    
+    plt.show()
+    
+def negocio_parcelas_total(DataFrame):
+    return DataFrame["qtd_parcelas"].sum()
+
+def negocio_parcelas_mod(DataFrame):
+    modalidades = list(modalidade['codigo_mod'])
+    final = list()
+    temp = list()
+    for i in modalidades:
+        query = f'id_mod == "{i}"'
+        temp = operacao.query(query)["qtd_parcelas"].sum()
+        final.append([i, temp])
+    return final
+
+def negocio_operacao_vlrtotal():
+    return operacao["vlr_contrato"].sum()
+
+def negocio_op_parcelas():
+    valores = negocio_parcelas_mod(operacao)
+    plt.style.use("ggplot")
+    plt.figure(figsize = (10,10))
+    quantias = list(i[1] for i in valores)
+    quantias.append(negocio_parcelas_total(operacao))
+    mods = list(i[0] for i in valores)
+    mods.append('Total')
+    plt.barh(mods, quantias, color = 'royalblue')
+    plt.xlabel("\nQuantidade de parcelas")
+    plt.ylabel("Códigos das Modalidades\n")
+    plt.title("\nOperação - Quantidade de parcelas por modalidade\n")
+    plt.show()
+
+def negocio_saldo_ddr():
+    return operacao["vlr_pendente"].sum()
+
+def plot_movimento():
+    valores = negocio_movimento(movimento)
+    plt.style.use("ggplot")
+    plt.figure(figsize = (10,10))
+    plt.title(f"Indicador de negócio - Movimentação")
+    plt.bar(['Total utilizado'], valores['Total utilizado'], color = 'royalblue')
+    plt.bar(['Total fatura'], valores['Total fatura'], color = 'darkblue')
+    plt.bar(['Total mínimo da fatura'], valores['Total mínimo da fatura'], color = 'royalblue')
+    plt.bar(['Total da parcela'], valores['Total da parcela'], color = 'darkblue')
+    plt.bar(['Quantidade de movimentações'], valores['Quantidade de movimentações'], color = 'royalblue')
+    plt.show()
