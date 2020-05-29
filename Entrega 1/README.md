@@ -9,7 +9,7 @@
 ### Aplicação
 <p>Nosso grupo desenvolveu funções em Python para extrair alguns indicadores de requisitos dos indicadores que foram solicitados pelo cliente. A partir disso, os dados foram convertidos em SQL para facilitar a manipulação dos mesmos. Na IDE PyCharm, o nosso programa se conecta ao banco de dados com as tabelas já convertidas e extrai os parâmetros necessários para a construção dos indicadores.</p>
 
-### Valores entregues: 
+### Valores entregues (Com base nos indicadores): 
 - Ajuste de dígitos no CNPJ
 - Filtro e contagem de CNPJ's duplicados
 - Função genérica para retornar os itens duplicados
