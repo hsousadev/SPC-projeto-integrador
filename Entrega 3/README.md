@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/57918707/81295850-6e8c7d00-9047-11ea-98ea-f68549174851.png)
+![Imagem-git](https://user-images.githubusercontent.com/56441318/83288074-2af5e080-a1b9-11ea-9049-6c27b940c1b7.jpg)
 
 # ENTREGA 3 (Sprint 3)
 
