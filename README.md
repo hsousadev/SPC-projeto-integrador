@@ -51,8 +51,10 @@ Nós recebemos do SPC Brasil as seguintes tabelas para a análise do lote de dad
 ![Untitled Diagram](https://user-images.githubusercontent.com/56441318/83183368-10aafc80-a0fe-11ea-8ae4-380516ab6164.png)
 
 ## Nossos cards para as entregas
-Aqui você pode acompanhar como está o andamento do projeto.
-[Progresso do Projeto](https://github.com/justhenrique/SPC-projeto-integrador/projects/2?fullscreen=true)
+Aqui você pode acompanhar como foi e como está cada umas das diversas entregas que nós tivemos ao longo do semestre.
+- [Cards da Entrega 1](https://github.com/justhenrique/SPC-projeto-integrador/projects/3)
+- [Cards da Entrega 2](https://github.com/justhenrique/SPC-projeto-integrador/projects/4)
+- [Cards da Entrega 3](https://github.com/justhenrique/SPC-projeto-integrador/projects/5)
 
 
 ## Entregas
