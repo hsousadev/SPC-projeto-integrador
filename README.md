@@ -2,7 +2,7 @@
 
 # PROJETO INTEGRADOR 
 ## FATEC SÃO JOSÉ DOS CAMPOS - SPC BRASIL
-Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado pelo 2º Semetre do curso de Análise e Desenvolvimento de Sistemas na FATEC de São José dos Campors para o Serviço de Proteção ao Crédito - SPC
+Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado pelo 2º Semetre do curso de Análise e Desenvolvimento de Sistemas na FATEC de São José dos Campos para o Serviço de Proteção ao Crédito - SPC
 
 ## Integrantes
 - [André Luis dos Santos Fagundes](https://github.com/Andre-lsf)
