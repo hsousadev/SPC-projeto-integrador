@@ -38,12 +38,12 @@ Desenvolver um programa que filtre as remessas de dados recebidas pelo nosso cli
 
 
 ## Tabelas
-Nós recebemos do SPC Brasil as seguintes tabelas para a análise do lote de dados:
--	Tabela Fonte: STG_FNT_ITT
--	Tabela Modalidade: STG_MDL
--	Tabela Movimento: STG_MVT_CRD
--	Tabela Operação: STG_OPR_ITT
--	Tabela Pagamento: STG_PGT
+Nós recebemos do SPC Brasil as seguintes remessas de dados para a análise dos lotes:
+
+<a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Dados'>Remessa 1</a>
+<a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%204/Dados%20-%20Remessa%202'>Remessa 2</a>
+
+
 
 ## Diagrama de caso de uso
 ![Untitled Diagram](https://user-images.githubusercontent.com/56441318/83183368-10aafc80-a0fe-11ea-8ae4-380516ab6164.png)
