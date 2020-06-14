@@ -22,4 +22,5 @@
 - Organização e criação dos novos backlogs com base na última reunião.
 
 ### Reestruturação da base de dados com as 2 remessas
+![Estrutura-da-Base-de-Dados](https://user-images.githubusercontent.com/56441318/84596929-efa11600-ae36-11ea-9127-987f23297580.jpg)
 [Estrutura da Base de Dados.pdf](https://github.com/justhenrique/SPC-projeto-integrador/files/4776656/Estrutura.da.Base.de.Dados.pdf)
