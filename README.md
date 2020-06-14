@@ -19,9 +19,7 @@ Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado 
 
 
 ## Objetivo
-Um trabalho acadêmico realizado por alunos da Fatec São José dos Campos – Profº Jessen Vidal em parceiria com a empresa SPC Brasil. 
-
-O intuito do trabalho é desenvolver um programa que filtre as remessas de dados recebidas pelo nosso cliente, o SPC Brasil. 
+Desenvolver um programa que filtre as remessas de dados recebidas pelo nosso cliente, o SPC Brasil. Estas remessas são constutuídas de dados brutos, encaminhados por diversas fontes para o nosso cliente. O nosso produto atuará analisando a qualidade dos dados recebidos e filtrando campos incongruentes, incompletos, repetidos, ou com qualquer outro fator que o torne inviável para utilização. A meta principal do trabalho, é entregar uma ferramenta de preparação dos dados, que funcione de forma automática, e garanta que o nosso cliente esteja ciente em relação a diversos parâmetros de qualidade dos dados recebidos.
 
 
 ## Indicadores de Qualidade
@@ -66,7 +64,7 @@ As entregas do projeto estão distribuidas em 6 entregas que serão feitas ao lo
 
 - <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%203'>Entrega 3</a>
 
-- <a href='...'>Entrega 4</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%204'>Entrega 4</a>
 
 - <a href='...'>Entrega 5</a>
 
