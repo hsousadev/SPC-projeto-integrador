@@ -40,8 +40,8 @@ Desenvolver um programa que filtre as remessas de dados recebidas pelo nosso cli
 ## Tabelas
 Nós recebemos do SPC Brasil as seguintes remessas de dados para a análise dos lotes:
 
-<a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Dados'>Remessa 1</a>
-<a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%204/Dados%20-%20Remessa%202'>Remessa 2</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Dados'>Remessa 1</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%204/Dados%20-%20Remessa%202'>Remessa 2</a>
 
 
 
