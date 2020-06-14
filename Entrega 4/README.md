@@ -21,5 +21,5 @@
 - Tomada de decisão com a nova base de dados.
 - Organização e criação dos novos backlogs com base na última reunião.
 
-### Estrutura da base de dados com as 2 remessas
+### Reestruturação da base de dados com as 2 remessas
 [Estrutura da Base de Dados.pdf](https://github.com/justhenrique/SPC-projeto-integrador/files/4776656/Estrutura.da.Base.de.Dados.pdf)
