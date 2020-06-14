@@ -53,7 +53,7 @@ Aqui você pode acompanhar como foi e como está cada umas das diversas entregas
 - [Cards da Entrega 1](https://github.com/justhenrique/SPC-projeto-integrador/projects/3)
 - [Cards da Entrega 2](https://github.com/justhenrique/SPC-projeto-integrador/projects/4)
 - [Cards da Entrega 3](https://github.com/justhenrique/SPC-projeto-integrador/projects/5)
-
+- [Cards da Entrega 4](https://github.com/justhenrique/SPC-projeto-integrador/projects/6)
 
 ## Entregas
 As entregas do projeto estão distribuidas em 6 entregas que serão feitas ao longo do semestre.
