@@ -58,17 +58,17 @@ Aqui você pode acompanhar como foi e como está cada umas das diversas entregas
 ## Entregas
 As entregas do projeto estão distribuidas em 6 entregas que serão feitas ao longo do semestre.
 
-- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%201'>Entrega 1</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%201'>Entrega 1</a> 16/03/2020 a 20/03/2020
 
-- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%202'>Entrega 2</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%202'>Entrega 2</a> 11/05/2020 a 15/05/2020
 
-- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%203'>Entrega 3</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%203'>Entrega 3</a> 25/05/2020 a 29/06/2020
 
-- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%204'>Entrega 4</a>
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%204'>Entrega 4</a> 08/06/2020 a 12/06/2020
 
-- <a href='...'>Entrega 5</a>
+- <a href='...'>Entrega 5</a> 22/06/2020 a 26/06/2020
 
-- <a href='...'>Entrega 6</a>
+- <a href='...'>Entrega 6</a> 06/07/2020 a 10/07/2020
 
 
 ## Ferramentas utilizadas
