@@ -5,7 +5,7 @@
 ### Objetivo
 <p>Atualizar o encaminhamento do projeto, de acordo com as últimas solicitações do cliente.</p>
 
-### Aplicação
+### Aplicação (Em desenvolvimento)
 <p>O backlog do projeto foi alterado para adequar as novas mudanças. A partir deste ponto, desenvolveremos a nossa aplicação para que seja possível aplicar as funções que extraem inicadores de qualidade de forma automática, sem precisar de intervenção humana para tal ação.</p>
 <p>Os requisitos funcionais para esta nova estruturação se baseiam em compreender, de forma detalhada, o modo de recebimento dos dados pelo cliente, para que nosso produto possa agir de forma independente. Os itens acima serão definidos em contato com o cliente na próxima semana:</p>
 
