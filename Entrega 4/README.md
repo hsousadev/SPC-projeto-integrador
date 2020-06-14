@@ -15,5 +15,8 @@
   <li>Definir os critérios de aprovação ou reprovação dos lotes recebidos, com base nas métricas extraídas pelos nossos indicadores de qualidade.</li>
 </ul>
 
-### Valores entregues (Com base nos indicadores):
+### Valores entregues (Com base na última reunião com o cliente):
 - Aplicação de forma automática das métricas e indicadores desenvolvidos pela equipe.
+- Estrutura da nova remessa de dados.
+- Tomada de decisão com a nova base de dados.
+- Organização e criação dos novos backlogs com base na última reunião.
