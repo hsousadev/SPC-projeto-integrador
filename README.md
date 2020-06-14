@@ -19,7 +19,7 @@ Projeto Integrador 2020 Indicadores de Qualidade e Negócio, trabalho realizado 
 
 
 ## Objetivo
-Desenvolver um programa que filtre as remessas de dados recebidas pelo nosso cliente, o SPC Brasil. Estas remessas são constutuídas de dados brutos, encaminhados por diversas fontes para o nosso cliente. O nosso produto atuará analisando a qualidade dos dados recebidos e filtrando campos incongruentes, incompletos, repetidos, ou com qualquer outro fator que o torne inviável para utilização. A meta principal do trabalho, é entregar uma ferramenta de preparação dos dados, que funcione de forma automática, e garanta que o nosso cliente esteja ciente em relação a diversos parâmetros de qualidade dos dados recebidos.
+Desenvolver um programa que filtre as remessas de dados recebidas pelo nosso cliente, o SPC Brasil. Estas remessas são constutuídas de dados brutos, encaminhados por diversas fontes para o nosso cliente. O nosso produto atuará analisando a qualidade dos dados recebidos e filtrando campos incongruentes, incompletos, repetidos, ou com qualquer outro fator que o torne inviável para utilização. A meta principal do trabalho é entregar uma ferramenta de preparação de dados, que funcione de forma automática e garanta que o nosso cliente estará ciente em relação a diversos parâmetros de qualidade dos dados recebidos, como integridade dos dados, completude, congruência, entre outros.
 
 
 ## Indicadores de Qualidade
