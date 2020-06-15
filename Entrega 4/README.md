@@ -6,7 +6,7 @@
 <p>Atualizar o encaminhamento do projeto, de acordo com as últimas solicitações do cliente.</p>
 
 ### Aplicação (Em desenvolvimento)
-<p>O backlog do projeto foi alterado para adequar as novas mudanças. A partir deste ponto, desenvolveremos a nossa aplicação para que seja possível aplicar as funções que extraem inicadores de qualidade de forma automática, sem precisar de intervenção humana para tal ação.</p>
+<p>O backlog do projeto foi alterado para adequar as novas mudanças. A partir deste ponto, desenvolveremos a nossa aplicação para que seja possível aplicar as funções que extraem indicadores de qualidade de forma automática, sem precisar de intervenção humana para tal ação.</p>
 <p>Os requisitos funcionais para esta nova estruturação se baseiam em compreender, de forma detalhada, o modo de recebimento dos dados pelo cliente, para que nosso produto possa agir de forma independente. Os itens acima serão definidos em contato com o cliente na próxima semana:</p>
 
 <ul>
@@ -27,6 +27,6 @@
 ### Cards da Sprint 4 
 - [Cards da Entrega 4](https://github.com/justhenrique/SPC-projeto-integrador/projects/6)
 
-### Reestruturação da base de dados com as 2 remessas
+### Reestruturação da base de dados com as 2 remessas (atualizado com a remessa atual)
 ![Estrutura-da-Base-de-Dados](https://user-images.githubusercontent.com/56441318/84596929-efa11600-ae36-11ea-9127-987f23297580.jpg)
 [Estrutura da Base de Dados.pdf](https://github.com/justhenrique/SPC-projeto-integrador/files/4776656/Estrutura.da.Base.de.Dados.pdf)
