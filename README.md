@@ -45,7 +45,7 @@ Nós recebemos do SPC Brasil as seguintes remessas de dados para a análise dos 
 
 
 
-## Fluxograma de funcionalidade do produto (atualizado na entrega 4)
+## Fluxograma de funcionalidade do produto
 ![fluxograma_entrega4spc](https://user-images.githubusercontent.com/54003876/84607266-b4c4cf80-ae82-11ea-9104-2166954a5197.png)
 
 ## Nossos cards para as entregas
