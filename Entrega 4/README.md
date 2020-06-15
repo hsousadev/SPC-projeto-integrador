@@ -16,7 +16,7 @@
 </ul>
 
 #### Fluxograma de funcionalidade da aplicação:
-![fluxograma_entrega4spc](https://user-images.githubusercontent.com/54003876/84607151-0c167000-ae82-11ea-94dc-c91af5ece075.png)
+![fluxograma_entrega4spc](https://user-images.githubusercontent.com/54003876/84607266-b4c4cf80-ae82-11ea-9104-2166954a5197.png)
 
 ### Valores entregues (Com base na última reunião com o cliente):
 - Aplicação de forma automática das métricas e indicadores desenvolvidos pela equipe.
