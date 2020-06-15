@@ -15,6 +15,9 @@
   <li>Definir os critérios de aprovação ou reprovação dos lotes recebidos, com base nas métricas extraídas pelos nossos indicadores de qualidade.</li>
 </ul>
 
+#### Fluxograma de funcionalidade da aplicação:
+![fluxograma_entrega4spc](https://user-images.githubusercontent.com/54003876/84607151-0c167000-ae82-11ea-94dc-c91af5ece075.png)
+
 ### Valores entregues (Com base na última reunião com o cliente):
 - Aplicação de forma automática das métricas e indicadores desenvolvidos pela equipe.
 - Estrutura da nova remessa de dados.
