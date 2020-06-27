@@ -1,6 +1,6 @@
 @font-face {
     font-family: Roboto;
-    src: url(fonts/Roboto-Regular.ttf);
+    src: url(../fonts/Roboto-Regular.ttf);
 }
 
 /*Layout de fundo */
@@ -78,7 +78,7 @@
     left: 156px;
     top: 280px;
 
-    background: url(assets/logo_UDA.svg)  
+    background: url(../assets/logo_UDA.svg)  
 }
 
 #slogan {
