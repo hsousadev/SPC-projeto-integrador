@@ -44,5 +44,3 @@ fatec_pagamento = fatec_pagamento[(fatec_pagamento['id_opr_cad_pos'] != coluna_f
 
 '''
 
-fatec_operacao_alterados = pd.read_excel("../dados/alterados/fatec_operacao.xlsx")
-
