@@ -2,6 +2,7 @@ import pandas as pd
 
 # Importando os Dados
 
+
 fatec_operacao = pd.read_excel("dados/alterados/fatec_opr.xlsx")
 
 '''
@@ -89,9 +90,8 @@ def completude_fontes_operacao():
     matriz_completude = list()
     for fonte in indice_fontes:
         porcentagem = completude_opr(fonte)
-        matriz_completude.append([porcentagem, fonte])
-    matriz_completude.sort(reverse=True)
+        matriz_completude.append([fonte, porcentagem])
+    matriz_completude.sort()
     return matriz_completude
 
-print(completude_fontes_operacao())
 

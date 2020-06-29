@@ -19,8 +19,15 @@
 <body>
   <div class="window">
     <header class="toolbar toolbar-header">
-      <h1 class="title">UDA BRASIL</h1>
 
+      <h1 class="title">UDA BRASIL</h1>
+      <style>
+        .title{
+          color: #ffffff;
+        }
+      </style>
+
+      <!--
       <div class="toolbar-actions">
 
         <div class="btn-group">
@@ -50,11 +57,14 @@
           <span class="icon icon-megaphone"></span>
         </button>
       </div>
+      -->
+
     </header>
 
     <div class="window-content">
       <div class="pane-group">
         <div class="pane pane-sm sidebar">
+          <!--
           <nav class="nav-group">
             <h5 class="nav-group-title">Favorites</h5>
             <span class="nav-group-item">
@@ -86,26 +96,28 @@
               Desktop
             </span>
           </nav>
+          -->
 
           <nav class="nav-group">
-            <h5 class="nav-group-title">Tags</h5>
-            <span class="nav-group-item" href="#">
-              <span class="icon icon-record" style="color:#fc605b"></span>
-              Red
-            </span>
-            <span class="nav-group-item" href="#">
-              <span class="icon icon-record" style="color:#fdbc40"></span>
-              Orange
-            </span>
+            <h5 class="nav-group-title">Categorias</h5>
+
             <span class="nav-group-item" href="#">
               <span class="icon icon-record" style="color:#34c84a"></span>
-              Green
+              MELHORES
             </span>
+
             <span class="nav-group-item" href="#">
-              <span class="icon icon-record" style="color:#57acf5"></span>
-              Blue
+              <span class="icon icon-record" style="color:#fdbc40"></span>
+              REGULARES
             </span>
+
+            <span class="nav-group-item" href="#">
+              <span class="icon icon-record" style="color:#fc605b"></span>
+              EMERGENCIAIS
+            </span>
+
           </nav>
+          <!--
           <nav class="nav-group">
             <h5 class="nav-group-title">Devices</h5>
             <span class="nav-group-item">
@@ -125,18 +137,32 @@
               Backup disk
             </span>
           </nav>
+          -->
+
         </div>
+        
         <div class="pane">
+
+          {% block content %}
+
+          {% endblock %}
+          
+          <!--
           <table class="table-striped">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Kind</th>
-                <th>Date Modified</th>
-                <th>Author</th>
+                <th>Posição</th>
+                <th>ID Fonte</th>
+                <th>Pontuação Geral</th>
+                <th>Completude</th>
+                <th>Consistência</th>
               </tr>
             </thead>
+
+            
             <tbody>
+
+
               <tr>
                 <td>bars.scss</td>
                 <td>Document</td>
@@ -245,8 +271,11 @@
                 <td>Oct 13, 2015</td>
                 <td>connors</td>
               </tr>
+              
+
             </tbody>
           </table>
+          -->
         </div>
       </div>
     </div>
