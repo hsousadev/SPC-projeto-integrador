@@ -54,6 +54,7 @@ Aqui você pode acompanhar como foi e como está cada umas das diversas entregas
 - [Cards da Entrega 2](https://github.com/justhenrique/SPC-projeto-integrador/projects/4)
 - [Cards da Entrega 3](https://github.com/justhenrique/SPC-projeto-integrador/projects/5)
 - [Cards da Entrega 4](https://github.com/justhenrique/SPC-projeto-integrador/projects/6)
+- [Cards da Entrega 5](https://github.com/justhenrique/SPC-projeto-integrador/projects/7)
 
 ## Entregas
 As entregas do projeto estão distribuidas em 6 entregas que serão feitas ao longo do semestre.
@@ -66,12 +67,16 @@ As entregas do projeto estão distribuidas em 6 entregas que serão feitas ao lo
 
 - <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%204'>Entrega 4</a> - 08/06/2020 a 12/06/2020
 
-- <a href='...'>Entrega 5</a> - 22/06/2020 a 26/06/2020
+- <a href='https://github.com/justhenrique/SPC-projeto-integrador/tree/master/Entrega%205'>Entrega 5</a> - 22/06/2020 a 26/06/2020
 
 - <a href='...'>Entrega 6</a> - 06/07/2020 a 10/07/2020
 
 
 ## Ferramentas utilizadas
-Para realizar a análise dos dados e corrigir quaisquer defeitos encontrados neles, utilizamos a biblioteca Pandas que nos permitiu, de maneira mais prática e intuitiva, realizar uma análise completa dos dados, seguindo os indicadores.
 
+PANDAS (PYTHON)
+Para realizar a análise dos dados e corrigir quaisquer defeitos encontrados neles, utilizamos a biblioteca Pandas que nos permitiu, de maneira mais prática e intuitiva, realizar uma análise completa dos dados, seguindo os indicadores.
 Caso queira instalar a biblioteca Pandas em sua máquina, siga as etapas nesta apostila: https://docs.google.com/document/d/1jUYCTZRL7FWGMITATub0-bUWEAhjr6iz7f04J3XV9_c/edit 
+
+FRAMEWORK FLASK
+Para realização da integração do back-end, realizado em python, com o Front-end da aplicação. 
