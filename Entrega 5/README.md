@@ -38,7 +38,7 @@ BACK-END
 
 [Consistência](https://github.com/justhenrique/SPC-projeto-integrador/blob/master/Entrega%205/SPC%20Produto%20-%20Prot%C3%B3tipo%20v1/UDA%20Brasil/consistencia.py)
 
-
+[Controller](https://github.com/justhenrique/SPC-projeto-integrador/blob/master/Entrega%205/SPC%20Produto%20-%20Prot%C3%B3tipo%20v1/UDA%20Brasil/controller.py)
 
 
 
