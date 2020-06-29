@@ -20,7 +20,7 @@
   <div class="window">
     <header class="toolbar toolbar-header">
       <h1 class="title">UDA BRASIL</h1>
-
+      
       <div class="toolbar-actions">
 
         <div class="btn-group">
@@ -127,6 +127,9 @@
           </nav>
         </div>
         <div class="pane">
+          {% block content %}
+          {% endblock %}
+          <!--
           <table class="table-striped">
             <thead>
               <tr>
@@ -247,6 +250,7 @@
               </tr>
             </tbody>
           </table>
+          -->
         </div>
       </div>
     </div>
