@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, url_for
-from controller import get_ranking
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def main():
@@ -17,8 +16,7 @@ def screen2():
 
 @app.route('/rank')
 def rank():
-    ranking = get_ranking()
-    return render_template('ranking.html', ranking = ranking)
+    return render_template('screen3.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

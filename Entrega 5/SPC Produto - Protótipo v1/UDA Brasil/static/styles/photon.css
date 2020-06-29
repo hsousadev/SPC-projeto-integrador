@@ -534,7 +534,7 @@ h6 {
   font-size: 12px;
   font-weight: 400;
   text-align: center;
-  color: #ffffff;
+  color: #555;
   cursor: default;
 }
 
@@ -767,7 +767,7 @@ img {
   padding: 10px 10px 2px;
   font-size: 12px;
   font-weight: 500;
-  color: white;
+  color: #666666;
 }
 
 @font-face {
