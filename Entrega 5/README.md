@@ -9,7 +9,7 @@ Entregar um produto de valor visando facilitar a análise dos dados recebidos pe
 Apresentação do produto:
 ![readme_git_UDA_2](https://user-images.githubusercontent.com/54003876/85960076-0f782400-b977-11ea-9012-2fda9509fb16.png)
 
-## Breve demonstração do Software
+## Demonstração do Software
 Protótipo UDA BRASIL em desenvolvimento. 
 ![spc](https://user-images.githubusercontent.com/54003876/85960519-6cc1a480-b97a-11ea-8887-108e45e4263c.gif)
 
@@ -49,7 +49,8 @@ Entenda o processo da aplicação desde o input dos dados até a entrega
 
 
 ## Cards da Sprint 5 
-- [Cards da Entrega 5](https://github.com/justhenrique/SPC-projeto-integrador/projects/7)
+- [Acesse os CARDS aqui](https://github.com/justhenrique/SPC-projeto-integrador/projects/7)
+![image](https://user-images.githubusercontent.com/54003876/85962187-c24f7e80-b985-11ea-95a9-cbc50576f60e.png)
 
 
 
