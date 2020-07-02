@@ -1,9 +1,14 @@
 import pandas as pd
+
+# Dados Principais
+fonte = pd.read_excel("dados/principais/STG_FNT_ITT.xlsx")
+modalidade = pd.read_excel("dados/principais/STG_MDL.xlsx")
+pagamento = pd.read_excel("dados/principais/STG_PGT.xlsx")
+movimento = pd.read_excel("dados/principais/STG_MVT_CRD.xlsx")
+
+# Dados Complementares
 fatec_operacao = pd.read_excel("dados/alterados/fatec_opr.xlsx")
-fatec_modalidade = pd.read_excel("dados/principais/STG_MDL.xlsx")
-fatec_fonte = pd.read_excel("dados/principais/STG_FNT_ITT.xlsx")
-fatec_pagamento = pd.read_excel("dados/principais/STG_PGT.xlsx")
-fatec_movimento = pd.read_excel("dados/principais/STG_MVT_CRD.xlsx")
+
 
 # indice das fontes
 indice_fontes = set(list(int(float(str(i).strip()))
@@ -22,8 +27,8 @@ def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
 
 
 # lista de dataframes
-dataframes = [fatec_operacao, fatec_modalidade,
-              fatec_fonte, fatec_movimento, fatec_pagamento]
+dataframes = [fatec_operacao, modalidade,
+              fonte, movimento, pagamento]
 
 for df in dataframes:  # limpando todas as listas
     limpa_espacos(df)

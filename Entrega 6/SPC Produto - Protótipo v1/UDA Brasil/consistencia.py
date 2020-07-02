@@ -1,7 +1,7 @@
 import pandas as pd
-from data import fatec_operacao, fatec_modalidade, indice_fontes
+from data import fatec_operacao, modalidade, indice_fontes
 
-lista_modalidade = list(fatec_modalidade["COD_MDL"])
+lista_modalidade = list(modalidade["COD_MDL"])
 
 
 def consistencia_opr(fonte):
