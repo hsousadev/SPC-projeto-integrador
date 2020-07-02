@@ -1,6 +1,7 @@
 import pandas as pd
 from data import fatec_operacao, fonte, indice_fontes
 
+
 def valida_fonte():
     fontes_sem_indentificação = list()
     for id_fonte in indice_fontes:
@@ -10,29 +11,20 @@ def valida_fonte():
     return porcentagem, fontes_sem_indentificação
 
 
-
-def valida_cpf(cpf):
-
-    # Encontrando o primeiro digito
-    cont = 10
-    acumulador = 0
-    for index in range(len(str(cpf))-2):
-        acumulador += int(cpf[index]) * cont
-        cont -= 1
-    digito = 11 - (acumulador % 11)
-
-    cpf_teste = str(cpf[:9]) + str(digito)
-
-    # Encontrando o segundo digito
-    cont = 11
-    acumulador = 0
-    for index in range(len(cpf_teste) - 1):
-        acumulador += int(cpf[index]) * cont
-        cont -= 1
-    digito = 11 - (acumulador % 11)
-
-    resultado_cpf = cpf_teste + str(digito)
-    return resultado_cpf == cpf
+def validaCpf(cpf, d1=0, d2=0, i=0):
+    while i < 10:
+        d1, d2, i = (
+            d1+(int(cpf[i])(11-i-1))) % 11 if i < 9 else d1, (d2+(int(cpf[i])(11-i))) % 11, i+1
+    return (int(cpf[9]) == (11-d1 if d1 > 1 else 0)) and (int(cpf[10]) == (11-d2 if d2 > 1 else 0))
 
 
-def verifica_pessoa():
+def cpfInvalidos(fonte):
+    cpf_invalidos = list()
+    cpf_fonte = fatec_operacao[(fatec_operacao["id_fnt"] == fonte)]
+    listCpfs = list(cpf_fonte["doc_cli"])
+    for cpf in listCpfs:
+        if not validaCpf(cpf):
+            cpf_invalidos.append(cpf)
+
+    porcentagem = (len(cpf_invalidos) / len(listCpfs)) * 100
+    return porcentagem, cpf_invalidos
