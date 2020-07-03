@@ -12,12 +12,36 @@ def valida_fonte():
 
 
 def validaCpf(cpf, d1=0, d2=0, i=0):
+
     while i<10:
         d1,d2,i=(d1+(int(cpf[i])*(11-i-1)))%11 if i<9 else d1,(d2+(int(cpf[i])*(11-i)))%11,i+1
     return (int(cpf[9])==(11-d1 if d1>1 else 0)) and (int(cpf[10])==(11-d2 if d2>1 else 0))
 
-def validaCnpj():
-    pass
+
+def validaCnpj(cnpj):
+    str(cnpj)
+
+    if (not cnpj) or (len(cnpj) < 14):
+        return False
+
+    # Pega apenas os 12 primeiros dígitos do CNPJ e gera os 2 dígitos que faltam
+    inteiros = list(map(int, cnpj))
+    novo = inteiros[:12]
+
+    mascara_validacao = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+    while len(novo) < 14:
+        r = sum([x*y for (x, y) in zip(novo, mascara_validacao)]) % 11
+        if r > 1:
+            f = 11 - r
+        else:
+            f = 0
+        novo.append(f)
+        mascara_validacao.insert(0, 6)
+
+    # Se o número gerado coincidir com o número original, é válido
+    if novo == inteiros:
+        return True
+    return False
 
 
 def cpfInvalidos(fonte):
@@ -37,7 +61,7 @@ def cpfInvalidos(fonte):
     
 
     porcentagem = ((len(cpf_invalidos) + len(cnpj_invalidos)) / len(listDoc)) * 100
-    return porcentagem, cpf_invalidos
+    return porcentagem, cpf_invalidos, cnpj_invalidos
 
 
 
