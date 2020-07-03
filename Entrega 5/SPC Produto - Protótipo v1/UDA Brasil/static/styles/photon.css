@@ -529,12 +529,12 @@ h6 {
   -webkit-app-region: drag;
 }
 
-.title {
+h1.title {
   margin: 0;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
-  color: #555;
+  color: #ffffff;
   cursor: default;
 }
 
@@ -767,7 +767,7 @@ img {
   padding: 10px 10px 2px;
   font-size: 12px;
   font-weight: 500;
-  color: #666666;
+  color: #ffffff;
 }
 
 @font-face {

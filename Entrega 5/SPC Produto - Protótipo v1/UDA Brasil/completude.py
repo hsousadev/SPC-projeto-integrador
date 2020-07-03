@@ -89,9 +89,8 @@ def completude_fontes_operacao():
     matriz_completude = list()
     for fonte in indice_fontes:
         porcentagem = completude_opr(fonte)
-        matriz_completude.append([porcentagem, fonte])
-    matriz_completude.sort(reverse=True)
+        matriz_completude.append([fonte, porcentagem])
+    matriz_completude.sort()
     return matriz_completude
 
-print(completude_fontes_operacao())
 
