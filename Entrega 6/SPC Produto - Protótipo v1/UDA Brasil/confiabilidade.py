@@ -28,7 +28,7 @@ def validaCnpj(cnpj):
     inteiros = list(map(int, cnpj))
     novo = inteiros[:12]
 
-    mascara_validacao = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+    mascara_validacao = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2] # Fornecida pela receita federal
     while len(novo) < 14:
         r = sum([x*y for (x, y) in zip(novo, mascara_validacao)]) % 11
         if r > 1:
