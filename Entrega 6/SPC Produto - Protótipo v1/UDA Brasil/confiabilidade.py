@@ -64,6 +64,23 @@ def cpfInvalidos(fonte):
     return porcentagem, cpf_invalidos, cnpj_invalidos
 
 
-
-
-
+def validaNumerico(df, coluna):
+    contInvalidos = int()
+    camposInvalidos = list()
+    
+    for campo in df[coluna]:
+        try:
+            float(campo)
+            
+        except ValueError:
+            if campo != 'NULL':
+                contInvalidos += 1
+                camposInvalidos.append(campo)
+                
+    try:
+        porcentagem = (1 - (len(coluna) / contInvalidos)) * 100
+    
+    except ZeroDivisionError:
+        porcentagem = 100
+        
+    return porcentagem, camposInvalidos
