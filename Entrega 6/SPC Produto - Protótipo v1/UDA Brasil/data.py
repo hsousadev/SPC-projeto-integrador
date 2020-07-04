@@ -16,7 +16,7 @@ indice_fontes = set(list(int(float(str(i).strip()))
 
 
 def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
-    for coluna in fatec_operacao:
+    for coluna in df:
         coluna_temporaria = list()
         for campo in df[coluna]:
             if type(campo) == str:
