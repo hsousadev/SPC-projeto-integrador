@@ -44,11 +44,11 @@ def validaCnpj(cnpj):
     return False
 
 
-def cpfInvalidos(fonte):
+def documentosInvalidos(fonte):
     cpf_invalidos = list()
     cnpj_invalidos = list()
-    doc_fonte = fatec_operacao[(fatec_operacao["id_fnt"] == fonte)]
-    listDoc = [list(doc_fonte["doc_cli"]), list(doc_fonte["tip_cli"])]
+    dataframe = fatec_operacao[(fatec_operacao["id_fnt"] == fonte)]
+    listDoc = [list(dataframe["doc_cli"]), list(dataframe["tip_cli"])]
     
     for index in range(len(listDoc)):
         if listDoc[1][index] == "F":
@@ -62,6 +62,15 @@ def cpfInvalidos(fonte):
 
     porcentagem = ((len(cpf_invalidos) + len(cnpj_invalidos)) / len(listDoc)) * 100
     return porcentagem, cpf_invalidos, cnpj_invalidos
+
+
+def valida_documentos():
+    matriz_confiabilidade = list()
+    for fonte in indice_fontes:
+        porcentagem = documentosInvalidos(fonte)
+        matriz_confiabilidade.append(fonte, porcentagem[0])
+    matriz_confiabilidade.sort()
+    return matriz_confiabilidade
 
 
 def validaNumerico(df, coluna):

@@ -1,9 +1,6 @@
 import pandas as pd
-from data import fatec_operacao, indice_fontes
+from data import fatec_operacao, fatec_movimento, fatec_pagamento, indice_fontes
 
-# Importando os Dados
-
-fatec_operacao = pd.read_excel("dados/alterados/fatec_opr.xlsx")
 
 
 fontes_ids = list(int(float(str(i).strip()))
@@ -47,3 +44,10 @@ def completude_fontes_operacao():
         matriz_completude.append([fonte, porcentagem])
     matriz_completude.sort()
     return matriz_completude
+
+
+## TABELA MOVIMENTO
+## TESTE - VERIFICANDO SE OS ID'S OPERAÇÃO EXISTEM DENTRO DA TABELA OPERAÇÃO
+
+def verifica_id_opr():
+    pass

@@ -8,6 +8,8 @@ movimento = pd.read_excel("dados/principais/STG_MVT_CRD.xlsx")
 
 # Dados Complementares
 fatec_operacao = pd.read_excel("dados/alterados/fatec_opr.xlsx")
+fatec_movimento = pd.read_excel("dados/alterados/fatec_mvt.xlsx")
+fatec_pagamento = pd.read_excel("dados/alterados/fatec_pgt.xlsx")
 
 
 # indice das fontes
