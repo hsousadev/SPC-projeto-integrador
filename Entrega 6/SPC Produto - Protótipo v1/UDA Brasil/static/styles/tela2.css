@@ -67,13 +67,14 @@ input {
 
 /*tb1*/
 
+
 #box1 {
     position: absolute;
     width: 585px;
     height: 82px;
     left: 348px;
     top: 154px;
-}
+} */
 
 #STG_FNT_ITT {
     position: absolute;
@@ -120,6 +121,7 @@ input {
 
 }
 
+
 #label_bt1 {
     position: absolute;
     width: 109px;
@@ -136,6 +138,7 @@ input {
     text-align: center;
     color: #FFFFFF;
 }
+
 
 /*tb2*/
 
