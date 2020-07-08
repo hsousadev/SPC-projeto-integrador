@@ -26,66 +26,73 @@
           <h1>SELECIONE AS PLANILHAS:</h1>
       </div>
 
-      
-    <div id="box1">
+    
+    <form action="/upload" enctype="multipart/form-data" method="post" id="box1">
       <div id="STG_FNT_ITT"><h1>STG_FNT_ITT</h1></div>
       <div id="STG_FNT_ITT_caixa"></div>
  
       <div id="bt_1">
         <label id="label_bt1">
           Selecionar
-        <input type="file" value="input_tb1"/>
+        <input type="file" name="inputFile" id="input_file" value="input_tb1"/>
         </label>
-      </div> 
-    </div>
+      </div>    
+      <div><button type="submit">ENVIAR FONTE</button></div>  
+    </form> 
 
-    <div id="box2">
+    
+
+    <form action="/upload" enctype="multipart/form-data" method="post" id="box2">
       <div id="STG_MDL"><h1>STG_MDL</h1></div>
       <div id="STG_MDL_caixa"></div>
  
       <div id="bt_2">
         <label id="label_bt2">
           Selecionar
-        <input type="file" value="input_tb2"/>
+        <input type="file" id="input_file" name = "inputFile" value="input_tb2"/>
         </label>
       </div> 
-    </div>
+      <div><button type="submit">ENVIAR MODALIDADE</button></div>
+    </form>
 
-    <div id="box3">
+    <form action="/upload" enctype="multipart/form-data" method="post" id="box3">
       <div id="STG_MVT_CRD"><h1>STG_MVT_CRD</h1></div>
       <div id="STG_MVT_CRD_caixa"></div>
  
       <div id="bt_3">
         <label id="label_bt3">
           Selecionar
-        <input type="file" value="input_tb3"/>
+        <input type="file" id="input_file" name="inputFile" value="input_tb3"/>
         </label>
       </div> 
-    </div>
+      <div><button type="submit">ENVIAR MOVIMENTAÇÂO</button></div>
+    </form>
 
-    <div id="box4">
+    <form action="/upload" enctype="multipart/form-data" method="post" id="box4">
       <div id="STG_OPR_ITT"><h1>STG_OPR_ITT</h1></div>
       <div id="STG_OPR_ITT_caixa"></div>
  
       <div id="bt_4">
         <label id="label_bt4">
           Selecionar
-        <input type="file" value="input_tb4"/>
+        <input type="file" id="input_file" name="inputFile" value="input_tb4"/>
         </label>
       </div> 
-    </div>
+      <div><button type="submit">ENVIAR OPERAÇÃO</button></div>
+    </form>
 
-    <div id="box5">
+    <form action="/upload" enctype="multipart/form-data" method="post" id="box5">
       <div id="STG_PGT"><h1>STG_PGT</h1></div>
       <div id="STG_PGT_caixa"></div>
       
       <div id="bt_5">
         <label id="label_bt5">
           Selecionar
-        <input type="file" value="input_tb5"/>
+        <input type="file" name="inputFile" id="input_file" value="input_tb5"/>
         </label>
       </div> 
-    </div>
+      <div><button type="submit">ENVIAR PAGAMENTO</button></div>  
+    </form>
 
     <div id="bt_rank">
       <button type="submit" value="ranquear">
