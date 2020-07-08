@@ -29,7 +29,7 @@ def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
 
 
 # lista de dataframes
-dataframes = [fatec_operacao, modalidade,
+dataframes = [fatec_operacao, fatec_movimento, fatec_pagamento, modalidade,
               fonte, movimento, pagamento]
 
 for df in dataframes:  # limpando todas as listas
