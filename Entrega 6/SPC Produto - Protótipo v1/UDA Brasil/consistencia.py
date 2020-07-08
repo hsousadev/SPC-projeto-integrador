@@ -25,9 +25,9 @@ def consistencia_modalidade_operacao():
 def consistencia_id(fonte):
     id_invalidos = list()
     dataframe = fatec_operacao[(fatec_operacao["id_fnt"] == fonte)]
-    lista_id = list(dataframe['id_opr_cad_pos'])
-    for index in lista_id:
-        if index not in list(dataframe['id_opr_cad_pos']):
+    lista_id = list(dataframe['id_opr_cad_pos'], dataframe['id_fnt'])
+    for index in list(fatec_movimento['id_opr_cad_pos']):
+        if index not in lista_id:
             id_invalidos.append(index)
     return (len(id_invalidos) / dataframe.shape[0]) * 100
 
