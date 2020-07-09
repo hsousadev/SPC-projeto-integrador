@@ -15,8 +15,8 @@ fatec_pagamento = pd.read_excel("dados/importados/fatec_pgt.xlsx")
 
 
 # indice das fontes
-indice_fontes = set(list(int(float(str(i).strip()))
-                            for i in list(fatec_operacao['id_fnt'])))
+indice_fontes = list(set(fatec_operacao['id_fnt']))
+indice_fontes.sort()
 
 def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
     for coluna in df:

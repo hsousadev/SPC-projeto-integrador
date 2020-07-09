@@ -3,13 +3,17 @@ from data import fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, i
 
 lista_modalidade = list(modalidade["COD_MDL"])
 
+'''
+INÍCIO DAS ANÁLISES DA TABELA DE OPERAÇÕES
+'''
+
 def consistencia_opr(fonte):
     campos_inconsistentes = fatec_operacao.query(
         f"cod_mdl not in {lista_modalidade}")['cod_mdl'].count()
     return ((campos_inconsistentes / fatec_operacao.shape[0]) * 100)
 
 
-def consistencia_modalidade_operacao():
+def consistencia_modalidade_opr():
     matriz_consistencia = list()
     for fonte in indice_fontes:
         porcentagem = consistencia_opr(fonte)
@@ -17,9 +21,17 @@ def consistencia_modalidade_operacao():
     matriz_consistencia.sort()
     return matriz_consistencia
 
-# TABELA MOVIMENTO
 
-def consistencia_id(fonte):
+'''
+FIM DAS ANÁLISES NA TABELA DE OPERAÇÕES
+'''
+
+'''
+INÍCIO DAS ANÁLISES DA TABELA DE MOVIMENTO
+'''
+
+
+def consistencia_id_mvt(fonte):
     idsInvalidos = list()
     dataframe = fatec_movimento[(fatec_movimento['id_fnt'] == fonte)]
     for index in list(dataframe['id_opr_cad_pos']):
@@ -29,10 +41,16 @@ def consistencia_id(fonte):
     return porcentagem, idsInvalidos
 
 
-def consistencia_id_operacao():
+def consistencia_id_operacao_mvt():
     matriz_consistencia = list()
     for fonte in indice_fontes:
-        porcentagem = consistencia_id(fonte)
-        matriz_consistencia.append(fonte, porcentagem[0])
+        porcentagem = consistencia_id_mvt(fonte)[0]
+        matriz_consistencia.append([fonte, porcentagem])
     matriz_consistencia.sort()
     return matriz_consistencia
+
+'''
+FIM DAS ANÁLISES DA TABELA DE MOVIMENTO
+'''
+
+

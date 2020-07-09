@@ -1,12 +1,12 @@
 import pandas as pd
 from data import fatec_operacao, fatec_movimento, fatec_pagamento, indice_fontes
 
-
-fontes_ids = list(int(float(str(i).strip()))
-                  for i in list(fatec_operacao['id_fnt']))
+fontes_ids = list(int(float(str(i).strip())) for i in list(fatec_operacao['id_fnt']))
 fatec_operacao['id_fnt'].update(pd.Series(fontes_ids))
 
-
+'''
+INÍCIO DAS ANÁLISES NA TABELA DE OPERAÇÕES
+'''
 # Função que calcula a quantidade total de campos para um determinada fonte
 
 
@@ -17,7 +17,7 @@ def campos_totais_opr(fonte):
 # precisam da coluna 'sdo_ddr_tfm'
 
 
-def nulos_permitidos(fonte):
+def nulos_permitidos_opr(fonte):
     return fatec_operacao.query(f"sdo_ddr_tfm == 'NULL' and cod_mdl not in ['D01', 'C01'] and id_fnt == {fonte}")['sdo_ddr_tfm'].count()
 
 
@@ -28,14 +28,13 @@ def completude_opr(fonte):
         if fatec_operacao.loc[linha]['id_fnt'] == fonte:
             campos_nulos += fatec_operacao.loc[linha].isna().sum()
             
-
-    nulos_totais = campos_nulos - nulos_permitidos(fonte)
+    nulos_totais = campos_nulos - nulos_permitidos_opr(fonte)
     return 100 - ((nulos_totais / campos_totais_opr(fonte)) * 100)
 
 
 # Função que integra as 3 funções anteriores, retornando uma lista com a fonte e a porcentagem de sua respectiva
 # completude dos dados
-def completude_fontes_operacao():
+def completude_fontes_opr():
     matriz_completude = list()
     for fonte in indice_fontes:
         porcentagem = completude_opr(fonte)
@@ -43,6 +42,21 @@ def completude_fontes_operacao():
     matriz_completude.sort()
     return matriz_completude
 
+'''
+FIM DAS ANÁLISES NA TABELA DE OPERAÇÕES
+'''
+
+###################################################################################################
+
+'''
+INÍCIO DAS ANÁLISES NA TABELA DE PAGAMENTOS
+'''
+
+
+
+'''
+FIM DAS ANÁLISES NA TABELA DE OPERAÇÕES
+'''
 
 ## TABELA MOVIMENTO
 ## TESTE - VERIFICANDO SE OS ID'S OPERAÇÃO EXISTEM DENTRO DA TABELA OPERAÇÃO

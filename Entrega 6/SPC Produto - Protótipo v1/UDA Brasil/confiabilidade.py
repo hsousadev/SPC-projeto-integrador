@@ -160,3 +160,6 @@ def validaNumerico(df, coluna):
         porcentagem = 100
         
     return porcentagem, camposInvalidos
+
+
+
