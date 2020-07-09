@@ -1,5 +1,5 @@
 import pandas as pd
-from data import fatec_operacao, fatec_movimento, fatec_pagamento, fonte, indice_fontes
+from data import fatec_operacao, fonte, indice_fontes
 
 
 def valida_fonte():
@@ -68,63 +68,6 @@ def valida_documentos():
     matriz_confiabilidade = list()
     for fonte in indice_fontes:
         porcentagem = documentosInvalidos(fonte)
-        matriz_confiabilidade.append(fonte, porcentagem[0])
-    matriz_confiabilidade.sort()
-    return matriz_confiabilidade
-
-
-def datasInvalidas_operacao(fonte):
-    datas_invalidas = list()
-    dataframe = fatec_operacao[(fatec_operacao['id_fnt'] == fonte)]
-    for index in zip(list(dataframe['id_opr_cad_pos']), list(dataframe['dat_vct_ult_pcl'])):
-        if len(index[1]) < 8:
-            datas_invalidas.append(index)
-    porcentagem = (len(datas_invalidas) / dataframe.shape[0]) * 100
-    return porcentagem
-
-
-def valida_data_operacao():
-    matriz_confiabilidade = list()
-    for fonte in indice_fontes:
-        porcentagem = datasInvalidas_operacao(fonte)
-        matriz_confiabilidade.append(fonte, porcentagem[0])
-    matriz_confiabilidade.sort()
-    return matriz_confiabilidade
-
-
-def datasInvalidas_movimento(fonte):
-    datas_invalidas = list()
-    dataframe = fatec_operacao[(fatec_operacao['id_fnt'] == fonte)]
-    for index in zip(list(dataframe['id_mvt_cad_pos']), list(dataframe['dat_vct'])):
-        if len(index[1]) < 8:
-            datas_invalidas.append(index)
-    porcentagem = (len(datas_invalidas) / dataframe.shape[0]) * 100
-    return porcentagem
-
-
-def valida_data_movimento():
-    matriz_confiabilidade = list()
-    for fonte in indice_fontes:
-        porcentagem = datasInvalidas_movimento(fonte)
-        matriz_confiabilidade.append(fonte, porcentagem[0])
-    matriz_confiabilidade.sort()
-    return matriz_confiabilidade
-
-
-def datasInvalidas_pagamento(fonte):
-    datas_invalidas = list()
-    dataframe = fatec_operacao[(fatec_operacao['id_fnt'] == fonte)]
-    for index in zip(list(dataframe['id_pgt_cad_pos']), list(dataframe['dat_pgt'])):
-        if len(index[1]) < 8:
-            datas_invalidas.append(index)
-    porcentagem = (len(datas_invalidas) / dataframe.shape[0]) * 100
-    return porcentagem
-
-
-def valida_data_pagamento():
-    matriz_confiabilidade = list()
-    for fonte in indice_fontes:
-        porcentagem = datasInvalidas_pagamento(fonte)
         matriz_confiabilidade.append(fonte, porcentagem[0])
     matriz_confiabilidade.sort()
     return matriz_confiabilidade
