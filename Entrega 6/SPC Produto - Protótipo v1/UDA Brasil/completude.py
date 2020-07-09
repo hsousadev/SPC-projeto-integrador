@@ -2,7 +2,6 @@ import pandas as pd
 from data import fatec_operacao, fatec_movimento, fatec_pagamento, indice_fontes
 
 
-
 fontes_ids = list(int(float(str(i).strip()))
                   for i in list(fatec_operacao['id_fnt']))
 fatec_operacao['id_fnt'].update(pd.Series(fontes_ids))
@@ -25,10 +24,6 @@ def nulos_permitidos(fonte):
 # Função que retorna a porcentagem de campos nulos de acordo com a fonte, na tabela de operação
 def completude_opr(fonte):
     campos_nulos = 0
-    # for linha in range(fatec_operacao.shape[1]):
-    #     for campo in fatec_operacao.loc[linha]:
-    #         if campo['id_fnt'] == fonte:
-    #             campos_nulos += fatec_operacao.loc[linha].isna().sum()
     for linha in range(fatec_operacao.shape[0]):
         if fatec_operacao.loc[linha]['id_fnt'] == fonte:
             campos_nulos += fatec_operacao.loc[linha].isna().sum()
