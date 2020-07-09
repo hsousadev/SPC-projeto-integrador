@@ -11,7 +11,7 @@
 
   <title>Input dos Dados</title>
 
-  <link rel="stylesheet" href="../static/styles/tela2.css">
+  <link rel="stylesheet" href="../static/styles/screen_2.css">
 
 </head>
 
@@ -24,10 +24,10 @@
   </div>
 
   <div id="titulo">
-    <h1>SELECIONE AS PLANILHAS:</h1>
+    <h1>SELECIONE E ENVIE CADA PLANILHA. DEPOIS CLIQUE PARA RANQUEAR</h1>
   </div>
 
-
+  <!-- TABELA 1 -->
   <form action="/upload" enctype="multipart/form-data" method="post" id="box1">
     <div id="STG_FNT_ITT">
       <h1>STG_FNT_ITT</h1>
@@ -41,12 +41,16 @@
       </label>
     </div>
 
-    <div id="s1"><button type="submit">ENVIAR FONTE</button></div>
 
+    <div id="up1">
+      <label id="label_up1">
+        UP
+        <input type="submit" name="up_tb1" value=""></input>
+      </label>
+    </div>
   </form>
 
-
-
+  <!-- TABELA 2 -->
   <form action="/upload" enctype="multipart/form-data" method="post" id="box2">
     <div id="STG_MDL">
       <h1>STG_MDL</h1>
@@ -56,12 +60,20 @@
     <div id="bt_2">
       <label id="label_bt2">
         Selecionar
-        <input type="file" id="input_file" name="inputFile" value="input_tb2" />
+        <input type="file" name="inputFile" id="input_file" value="input_tb2" />
       </label>
     </div>
-    <div><button type="submit">ENVIAR MODALIDADE</button></div>
+
+
+    <div id="up2">
+      <label id="label_up2">
+        UP
+        <input type="submit" name="up_tb2" value=""></input>
+      </label>
+    </div>
   </form>
 
+  <!-- TABELA 3 -->
   <form action="/upload" enctype="multipart/form-data" method="post" id="box3">
     <div id="STG_MVT_CRD">
       <h1>STG_MVT_CRD</h1>
@@ -71,12 +83,21 @@
     <div id="bt_3">
       <label id="label_bt3">
         Selecionar
-        <input type="file" id="input_file" name="inputFile" value="input_tb3" />
+        <input type="file" name="inputFile" id="input_file" value="input_tb3" />
       </label>
     </div>
-    <div><button type="submit">ENVIAR MOVIMENTAÇÂO</button></div>
+
+
+    <div id="up3">
+      <label id="label_up3">
+        UP
+        <input type="submit" name="up_tb3" value=""></input>
+      </label>
+    </div>
   </form>
 
+
+  <!-- TABELA 4 -->
   <form action="/upload" enctype="multipart/form-data" method="post" id="box4">
     <div id="STG_OPR_ITT">
       <h1>STG_OPR_ITT</h1>
@@ -86,12 +107,20 @@
     <div id="bt_4">
       <label id="label_bt4">
         Selecionar
-        <input type="file" id="input_file" name="inputFile" value="input_tb4" />
+        <input type="file" name="inputFile" id="input_file" value="input_tb4" />
       </label>
     </div>
-    <div><button type="submit">ENVIAR OPERAÇÃO</button></div>
+
+
+    <div id="up4">
+      <label id="label_up4">
+        UP
+        <input type="submit" name="up_tb4" value=""></input>
+      </label>
+    </div>
   </form>
 
+  <!-- TABELA 5 -->
   <form action="/upload" enctype="multipart/form-data" method="post" id="box5">
     <div id="STG_PGT">
       <h1>STG_PGT</h1>
@@ -104,8 +133,18 @@
         <input type="file" name="inputFile" id="input_file" value="input_tb5" />
       </label>
     </div>
-    <div><button type="submit">ENVIAR PAGAMENTO</button></div>
+
+
+    <div id="up5">
+      <label id="label_up5">
+        UP
+        <input type="submit" name="up_tb5" value=""></input>
+      </label>
+    </div>
   </form>
+
+
+
 
   <div id="bt_rank">
     <button type="submit" value="ranquear">

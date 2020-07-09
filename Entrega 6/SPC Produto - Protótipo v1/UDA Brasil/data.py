@@ -49,3 +49,11 @@ def adiciona_coluna_fonte(dataframe): # Nome do dataframe que voce deseja adicio
             lista_fontes.append("Não encontrado")
 
     return dataframe.insert(loc = dataframe.shape[1], column = "id_fnt", value = lista_fontes)
+
+def coluna_fonte():
+    dataframes = [fatec_movimento, fatec_pagamento]
+    for dataframe in dataframes:
+        adiciona_coluna_fonte(dataframe)
+    return
+
+coluna_fonte()
