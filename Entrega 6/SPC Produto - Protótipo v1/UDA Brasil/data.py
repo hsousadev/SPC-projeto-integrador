@@ -2,7 +2,7 @@ import pandas as pd
 
 # Dados Principais
          
-fonte = pd.read_excel("dados/importados/STG_FNT_ITT.xlsx")
+fatec_fonte = pd.read_excel("dados/importados/STG_FNT_ITT.xlsx")
 modalidade = pd.read_excel("dados/importados/STG_MDL.xlsx")
 #pagamento = pd.read_excel("dados/principais/STG_PGT.xlsx")
 #movimento = pd.read_excel("dados/principais/STG_MVT_CRD.xlsx")
@@ -11,12 +11,6 @@ modalidade = pd.read_excel("dados/importados/STG_MDL.xlsx")
 fatec_operacao = pd.read_excel("dados/importados/fatec_opr.xlsx")
 fatec_movimento = pd.read_excel("dados/importados/fatec_mvt.xlsx")
 fatec_pagamento = pd.read_excel("dados/importados/fatec_pgt.xlsx")
-
-
-
-# indice das fontes
-indice_fontes = set(list(int(float(str(i).strip()))
-                            for i in list(fatec_operacao['id_fnt'])))
 
 def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
     for coluna in df:
@@ -30,7 +24,7 @@ def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
 
 
 # lista de dataframes
-dataframes = [fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, fonte]
+dataframes = [fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, fatec_fonte]
 
 for df in dataframes:  # limpando todas as listas
     limpa_espacos(df)
@@ -70,6 +64,16 @@ def coluna_fonte():
         adiciona_coluna_fonte(dataframe)
     return
 
-coluna_fonte()
-adiciona_coluna_modalidade(fatec_movimento)
 
+if 'id_fnt' not in fatec_pagamento:
+    
+    coluna_fonte()
+    fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
+    fatec_pagamento.to_excel("dados/importados/fatec_pgt.xlsx", sheet_name = "tabela 1", index = False)
+
+if 'cod_mdl' not in fatec_movimento:
+    adiciona_coluna_modalidade(fatec_movimento)
+    fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
+
+
+indice_fontes = list(set(fatec_operacao['id_fnt']))

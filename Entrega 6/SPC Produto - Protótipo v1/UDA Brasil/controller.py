@@ -2,6 +2,9 @@ from completude import completude_fontes_opr
 from consistencia import consistencia_id_operacao_mvt, consistencia_modalidade_opr
 from data import indice_fontes
 
+consistencia_id_operacao_mvt = consistencia_id_operacao_mvt()
+consistencia_modalidade_opr = consistencia_modalidade_opr()
+completude_fontes_opr = completude_fontes_opr()
 
 def get_ranking():
 
@@ -14,10 +17,9 @@ def get_ranking():
 
     ranking = list()
     for fonte in range(len(indice_fontes)):
-        completude = completude_fontes_opr()[fonte][1]
+        completude = completude_fontes_opr[fonte][1]
         
-        consistencia = [consistencia_id_operacao_mvt()[fonte][1], consistencia_modalidade_opr()[fonte][1]]
-        consistencia = sum(consistencia) / len(consistencia)
+        consistencia = (consistencia_id_operacao_mvt[fonte][1] + consistencia_modalidade_opr[fonte][1]) / 2
 
         confiabilidade = 100 #valor temporário
 

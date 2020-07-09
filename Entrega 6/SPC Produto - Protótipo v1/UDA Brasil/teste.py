@@ -1,5 +1,6 @@
 import pandas as pd
 from data import fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, indice_fontes
 
-teste = set(list(fatec_movimento['prd']))
-teste2 = set(list(fatec_movimento['tip_mvt']))
+for index in list(fatec_movimento['id_opr_cad_pos']):
+  print(index)
+              

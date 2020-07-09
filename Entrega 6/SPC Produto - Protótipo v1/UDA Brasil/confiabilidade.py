@@ -1,16 +1,17 @@
 import pandas as pd
-from data import fatec_operacao, fatec_movimento, fatec_pagamento, fonte, indice_fontes
+from data import fatec_operacao, fatec_movimento, fatec_pagamento, fatec_fonte, indice_fontes
 
 
 def valida_fonte():
     fontes_sem_indentificação = list()
     for id_fonte in indice_fontes:
-        if id_fonte not in list(fonte["id_fonte"]):
+        if id_fonte not in list(fatec_fonte["id_fonte"]):
             fontes_sem_indentificação.append(id_fonte)
-    porcentagem = (len(fontes_sem_indentificação) / fonte.shape[0]) * 100
+    porcentagem = (len(fontes_sem_indentificação) / fatec_fonte.shape[0]) * 100
     return porcentagem, fontes_sem_indentificação
 
 
+'''
 def validaCpf(cpf, d1=0, d2=0, i=0):
 
     while i<10:
@@ -90,6 +91,7 @@ def valida_data_operacao():
         matriz_confiabilidade.append(fonte, porcentagem[0])
     matriz_confiabilidade.sort()
     return matriz_confiabilidade
+'''
 
 
 def datasInvalidas_movimento(fonte):
