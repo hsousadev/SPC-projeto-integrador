@@ -23,7 +23,7 @@ def get_ranking():
 
         pontuacao = (completude + confiabilidade + consistencia) / 3
         
-        ranking.append([pontuacao, indice_fontes[fonte], completude, confiabilidade, consistencia]) #'fonte + 1' pois possui o mesmo valor que a posição da fonte
+        ranking.append([f'{pontuacao:.2f}', indice_fontes[fonte], f'{completude:.2f}', f'{confiabilidade:.2f}', f'{consistencia:.2f}']) #'fonte + 1' pois possui o mesmo valor que a posição da fonte
 
         ranking.sort(reverse = True)
 
