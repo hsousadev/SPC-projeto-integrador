@@ -59,5 +59,5 @@ fatec_movimento = fatec_movimento[(fatec_movimento['id_opr_cad_pos'] != coluna_f
 fatec_pagamento = fatec_pagamento[(fatec_pagamento['id_opr_cad_pos'] != coluna_fatec_pagamento)]
 
 # Transformando o arquivo .CSV em .XLSX
-fatec_movimento.to_excel('Dados/alterados/fatec_mvt.xlsx', sheet_name = 'Tabela 1', index = False)
-fatec_pagamento.to_excel('Dados/alterados/fatec_pgt.xlsx', sheet_name = 'Tabela 1', index = False)
+fatec_movimento.to_excel('Dados/importados/fatec_mvt.xlsx', sheet_name = 'Tabela 1', index = False)
+fatec_pagamento.to_excel('Dados/importados/fatec_pgt.xlsx', sheet_name = 'Tabela 1', index = False)
