@@ -65,15 +65,21 @@ def coluna_fonte():
     return
 
 
-if 'id_fnt' not in fatec_pagamento:
+if 'id_fnt' not in fatec_pagamento or 'id_fnt' not in fatec_movimento:
+    try:
+        coluna_fonte()
+        fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
+        fatec_pagamento.to_excel("dados/importados/fatec_pgt.xlsx", sheet_name = "tabela 1", index = False)
+
+    except ValueError:
+        pass
     
-    coluna_fonte()
-    fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
-    fatec_pagamento.to_excel("dados/importados/fatec_pgt.xlsx", sheet_name = "tabela 1", index = False)
-
 if 'cod_mdl' not in fatec_movimento:
-    adiciona_coluna_modalidade(fatec_movimento)
-    fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
+    try:
+        adiciona_coluna_modalidade(fatec_movimento)
+        fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
 
+    except ValueError:
+        pass
 
 indice_fontes = list(set(fatec_operacao['id_fnt']))
