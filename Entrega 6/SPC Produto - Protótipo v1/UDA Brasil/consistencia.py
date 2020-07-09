@@ -10,7 +10,7 @@ INÍCIO DAS ANÁLISES DA TABELA DE OPERAÇÕES
 def consistencia_opr(fonte):
     campos_inconsistentes = fatec_operacao.query(
         f"cod_mdl not in {lista_modalidade}")['cod_mdl'].count()
-    return ((campos_inconsistentes / fatec_operacao.shape[0]) * 100)
+    return 100 - ((campos_inconsistentes / fatec_operacao.shape[0]) * 100)
 
 
 def consistencia_modalidade_opr():
