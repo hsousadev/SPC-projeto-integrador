@@ -1,6 +1,16 @@
 import pandas as pd
 from data import fatec_operacao, fonte, indice_fontes
 
+class Operacao(object):
+    def __init__(self, DataFrame):
+        self.df = DataFrame
+    def consistenciaColunaIdOpr(self):
+        contInconsistentes = 0
+        for linha in self.df['id_opr_cad_pos']:
+            if type(linha) != str or str(linha)[-4] != '-':
+                contInconsistentes += 1
+        return contInconsistentes
+    
 
 def valida_fonte():
     fontes_sem_indentificação = list()
