@@ -52,5 +52,3 @@ def completude_fontes_operacao():
 ## TABELA MOVIMENTO
 ## TESTE - VERIFICANDO SE OS ID'S OPERAÇÃO EXISTEM DENTRO DA TABELA OPERAÇÃO
 
-def verifica_id_opr():
-    pass
