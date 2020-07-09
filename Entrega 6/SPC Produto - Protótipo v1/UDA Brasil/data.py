@@ -13,6 +13,11 @@ fatec_movimento = pd.read_excel("dados/importados/fatec_mvt.xlsx")
 fatec_pagamento = pd.read_excel("dados/importados/fatec_pgt.xlsx")
 
 
+
+# indice das fontes
+indice_fontes = set(list(int(float(str(i).strip()))
+                            for i in list(fatec_operacao['id_fnt'])))
+
 def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
     for coluna in df:
         coluna_temporaria = list()
@@ -24,13 +29,23 @@ def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
         df[coluna].update(pd.Series(coluna_temporaria))
 
 
-    # lista de dataframes
+# lista de dataframes
 dataframes = [fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, fonte]
 
 for df in dataframes:  # limpando todas as listas
     limpa_espacos(df)
 
-# indice das fontes
-#indice_fontes = set(list(int(float(str(i).strip())) for i in list(fatec_operacao['id_fnt'])))
+                
+                
+def adiciona_coluna_fonte(dataframe): # Nome do dataframe que voce deseja adicionar a coluna fonte
+    lista_fontes = list() # lista de fontes a serem adicionadas no dataframe
 
-indice_fontes = set(fatec_operacao['id_fnt'])
+    for index in list(dataframe['id_opr_cad_pos']):
+        if index in list(fatec_operacao['id_opr_cad_pos']):
+            for ID in zip(list(fatec_operacao['id_opr_cad_pos']), list(fatec_operacao['id_fnt'])):
+                if index == ID[0]:
+                    lista_fontes.append(ID[1])
+        else:
+            lista_fontes.append("Não encontrado")
+
+    return dataframe.insert(loc = dataframe.shape[1], column = "id_fnt", value = lista_fontes)
