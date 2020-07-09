@@ -31,6 +31,9 @@ def consistencia_id(fonte):
             id_invalidos.append(index)
     return (len(id_invalidos) / dataframe.shape[0]) * 100
 
+
+
+
 # criar um zip das listas id_opr e id_fnt da tabela operação. Comparar com a lista id_opr da tabela movimento e identificar a fonte.
 
 def consistencia_id_operacao():
