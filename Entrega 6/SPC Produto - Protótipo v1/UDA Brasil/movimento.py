@@ -14,17 +14,22 @@ print(" * Dados importados")
 '''
 CONFIABILIDADE
 '''
+
 def datasInvalidas_movimento(fonte):
     datas_invalidas = list()
     dataframe = fatec_movimento[(fatec_movimento['id_fnt'] == fonte)]
     for index in zip(list(dataframe['id_mvt_cad_pos']), list(dataframe['dat_vct'])):
-        if len(index[1]) < 8:
-            datas_invalidas.append(index)
+
+        try:
+            int(index[1])
+            if len(str(int(index[1]))) < 8 and len(str(int(index[1]))):
+                datas_invalidas.append(index[1])
+            
+        except ValueError:
+            datas_invalidas.append(index[1])
+
     porcentagem = (len(datas_invalidas) / dataframe.shape[0]) * 100
     return porcentagem, datas_invalidas
-
-
-
 
 
 '''
