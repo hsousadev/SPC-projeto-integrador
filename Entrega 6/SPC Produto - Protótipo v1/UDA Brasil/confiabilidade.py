@@ -94,7 +94,12 @@ def valida_data_operacao():
 '''
 
 
-def datasInvalidas_movimento(fonte):
+
+
+
+# TABELA MOVIMENTO
+
+'''def datasInvalidas_movimento(fonte):
     datas_invalidas = list()
     dataframe = fatec_operacao[(fatec_operacao['id_fnt'] == fonte)]
     for index in zip(list(dataframe['id_mvt_cad_pos']), list(dataframe['dat_vct'])):
@@ -111,6 +116,7 @@ def valida_data_movimento():
         matriz_confiabilidade.append(fonte, porcentagem[0])
     matriz_confiabilidade.sort()
     return matriz_confiabilidade
+    '''
 
 
 def datasInvalidas_pagamento(fonte):
