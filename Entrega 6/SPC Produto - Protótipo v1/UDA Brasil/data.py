@@ -1,34 +1,34 @@
 import pandas as pd
-print('pandas importado')
+print(' * Biblioteca Pandas importada')
 # Dados Principais
 
-if not 'fatec_fonte' in globals():      
+if 'fatec_fonte' not in globals():      
     fatec_fonte = pd.read_excel("dados/importados/STG_FNT_ITT.xlsx")
-    print('fatec_fonte criado')
+    print(' * DataFrame fatec_fonte criado')
     
-if not 'modalidade' in globals():
+if 'modalidade' not in globals():
     modalidade = pd.read_excel("dados/importados/STG_MDL.xlsx")
-    print('modadlidade df criado')
+    print(' * DataFrame modalidade criado')
     
 #pagamento = pd.read_excel("dados/principais/STG_PGT.xlsx")
 #movimento = pd.read_excel("dados/principais/STG_MVT_CRD.xlsx")
 
 # Dados Complementares
-if not 'fatec_operacao' in globals():
+if 'fatec_operacao' not in globals():
     fatec_operacao = pd.read_excel("dados/importados/fatec_opr.xlsx")
-    print('fatec_operacao criado')
+    print(' * DataFrame fatec_operacao criado')
 
-if not 'fatec_movimento' in globals():    
+if 'fatec_movimento' not in globals():    
     fatec_movimento = pd.read_excel("dados/importados/fatec_mvt.xlsx")
-    print('movimento criado')
+    print(' * DataFrame fatec_movimento criado')
 
-if not 'fatec_pagamento' in globals():    
+if 'fatec_pagamento' not in globals():    
     fatec_pagamento = pd.read_excel("dados/importados/fatec_pgt.xlsx")
-    print('fatec pagamento criado')
+    print(' * DataFrame fatec_pagamento criado')
 
-if not 'pessoa_fisica' in globals():    
+if 'pessoa_fisica' not in globals():    
     pessoa_fisica = pd.read_excel("dados/importados/fatec_pessoa_fisica.xlsx")
-    print('pessoa fisica criado')
+    print(' * DataFrame pessoa_fisica criado')
     
 def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
     for coluna in df:
@@ -46,7 +46,7 @@ dataframes = [fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, fate
 
 for df in dataframes:  # limpando todas as listas
     limpa_espacos(df)
-print('limpeza de df realizada')
+print(' * Limpeza dos campos nos DataFrames realizada')
                 
                 
 def adiciona_coluna_fonte(dataframe): # Nome do dataframe que voce deseja adicionar a coluna fonte
@@ -84,29 +84,33 @@ def coluna_fonte():
 
 '''
 
+#O código abaixo verifica que a tabela de movimento ou operação já possuem as colunas de modalidade e fonte.
+#Caso não possuam, as funções "adiciona_coluna_fonte" e "adiciona_coluna_modalidade" serão executadas
+
 if 'id_fnt' not in fatec_pagamento or 'id_fnt' not in fatec_movimento:
     try:
         if 'id_fnt' not in fatec_pagamento:
-            print('adição de coluna fonte iniciada em pagamento')
+            print(' * Adição da coluna "id_fnt" iniciada em fatec_pagamento')
             adiciona_coluna_fonte(fatec_pagamento)
-            print('adição de coluna fonte finalizada em movimento')
+            print(' * Adição da coluna "id_fnt" finalizada em fatec_pagamento')
             fatec_pagamento.to_excel("dados/importados/fatec_pgt.xlsx", sheet_name = "tabela 1", index = False)
-            
+            print(' * Arquivo .xlsx de operação atualizado')
+
         if  'id_fnt' not in fatec_movimento:
-            print('adição de coluna fonte iniciada em movimento')
+            print(' * Adição da coluna "id_fnt" iniciada em fatec_movimento')
             adiciona_coluna_fonte(fatec_movimento)
             fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
-            print('adição de coluna fonte finalizada em movimento')
+            print(' * Adição da coluna "id_fnt" finalizada em fatec_movimento')
 
     except ValueError:
         pass
     
 if 'cod_mdl' not in fatec_movimento:
     try:
-        print('adição de coluna mdl iniciada')
+        print(' * Adição da coluna "cod_mdl" iniciada em fatec_movimento')
         adiciona_coluna_modalidade(fatec_movimento)
         fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
-        print('adição de coluna mdl finalizada')
+        print(' * Adição da coluna "cod_mdl" finalizada em fatec_movimento')
 
     except ValueError:
         pass
