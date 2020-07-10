@@ -1,28 +1,26 @@
 import pandas as pd
-from data import fatec_operacao, fatec_fonte, indice_fontes, modalidade
+from data import fatec_operacao, fatec_fonte, indice_fontes, modalidade, pessoa_fisica
 
+print('dados importados')
 # Declarando variáveis globais
 
 referencia_fonte = list(fatec_operacao['id_fnt'])
 
-
 # Este arquivo irá análisar cada fonte e irá retornar os indicadores já calculados
 
-'''
-Funções que retornam listas de id's invalidos (usar para a criação do relatório):
-
-- documentosInvalidos
-'''
-
 
 '''
-Indicadores de confiabilidade da tabela fatec operacao
+CONFIABILIDADE
 '''
 
 def validaCpf(cpf, d1=0, d2=0, i=0):
     while i<10:
         d1,d2,i=(d1+(int(cpf[i])*(11-i-1)))%11 if i<9 else d1,(d2+(int(cpf[i])*(11-i)))%11,i+1
+        
+   
     return (int(cpf[9])==(11-d1 if d1>1 else 0)) and (int(cpf[10])==(11-d2 if d2>1 else 0))
+
+
 
 
 def validaCnpj(cnpj):
@@ -49,27 +47,27 @@ def validaCnpj(cnpj):
     return novo == inteiros
 
 
-def documentosInvalidos(indice_fontes):
-    matriz = list([fonte] for fonte in indice_fontes)
+def documentosInvalidos(fonte):
+ 
     cpf_invalidos = list()
     cnpj_invalidos = list()
-    #dataframe = fatec_operacao[(fatec_operacao["id_fnt"] == fonte)]
-    listDoc = [list(fatec_operacao["doc_cli"]), list(fatec_operacao["tip_cli"]), referencia_fonte]
+    dataframe = fatec_operacao[(fatec_operacao["id_fnt"] == fonte)]
+    listDoc = [list(dataframe["doc_cli"]), list(dataframe["tip_cli"])]
 
     
-    # for index in range(len(listDoc)):
-    #     if listDoc[1][index] == "F":
-    #         if not validaCpf(listDoc[0][index]):
-    #             cpf_invalidos.append(listDoc[0][index])
-    #             matriz.append()
+    for index in range(len(listDoc)):
+        if listDoc[1][index] == "F":
+            #Garantindo que listDoc[0][index] terá 11 caracteres
+            if len(str(listDoc[0][index])) != 11:
+                cpf_invalidos.append(listDoc[0][index])
+            
+            elif not validaCpf(str(listDoc[0][index])):
+                cpf_invalidos.append(listDoc[0][index])
+          
         
-    #     else:
-    #         if not validaCnpj(listDoc[0][index]):
-    #              cnpj_invalidos.append(listDoc[0][index])
-
-
-    # for fonte in referencia_fonte:
-
+        else:
+            if not validaCnpj(listDoc[0][index]):
+                 cnpj_invalidos.append(listDoc[0][index])
     
 
     porcentagem = ((len(cpf_invalidos) + len(cnpj_invalidos)) / len(listDoc)) * 100
@@ -87,7 +85,7 @@ def datasInvalidas_operacao(fonte):
 
 
 '''
-Indicadores de consistencia da tabela fatec operacao
+CONSISTÊNCIA
 '''
 
 def consistencia(df_base, series_base, series_referencia):
@@ -105,6 +103,48 @@ def consistencia(df_base, series_base, series_referencia):
 
 
 '''
+COMPLETUDE
+'''
+
+def campos_totais_opr(fonte):
+    return fatec_operacao.query(f"id_fnt == {fonte}")['id_fnt'].count() * fatec_operacao.shape[1]
+
+# Função que calcula quantos campos nulos existem por conta da modalidade D01 e C01, as quais são as únicas que
+# precisam da coluna 'sdo_ddr_tfm'
+
+
+def nulos_permitidos_opr(fonte):
+    return fatec_operacao.query(f"sdo_ddr_tfm == 'NULL' and cod_mdl not in ['D01', 'C01'] and id_fnt == {fonte}")['sdo_ddr_tfm'].count()
+
+
+# Função que retorna a porcentagem de campos nulos de acordo com a fonte, na tabela de operação
+def completude_opr(fonte):
+
+    referencia_fontes = list(fatec_operacao['id_fnt'])
+    campos_nulos = int()
+
+    for linha in range(len(referencia_fontes)):
+        if referencia_fontes[linha] == fonte:
+            campos_nulos += fatec_operacao.loc[linha].isna().sum()
+
+    nulos_totais = campos_nulos - nulos_permitidos_opr(fonte)
+    return 100 - ((nulos_totais / campos_totais_opr(fonte)) * 100)
+
+# Função que integra as 3 funções anteriores, retornando uma lista com a fonte e a porcentagem de sua respectiva
+# completude dos dados
+
+
+def completude_fontes_opr():
+    matriz_completude = list()
+    for fonte in indice_fontes:
+        porcentagem = completude_opr(fonte)
+        matriz_completude.append([fonte, porcentagem])
+    matriz_completude.sort()
+    return matriz_completude
+
+
+'''
+UNIÃO DOS TRÊS INDICADORES
 Abaixo estamos contatenando todas as funções no seu respectivo indicador
 '''
 
@@ -124,11 +164,49 @@ def indicador_consistencia(fonte):
     return
 
 
-# Retorna a matriz de confiabilidade, completude e consistencia da fonte
-def indicadores_fatec_operacao(fonte): 
-    matriz_fatec_operacao = list()
-    matriz_fatec_operacao.append(fonte)
-    matriz_fatec_operacao.append(indicador_confiabilidade(fonte))
-    matriz_fatec_operacao.append(indicador_consistencia(fonte))
+'''
+A função abaixo concatenará todos os indicadores em uma matriz com o seguinte formato:
 
-    return
+[[fonte, consistencia, completude, confiabilidade],
+ [fonte, consistencia, completude, confiabilidade],
+ [fonte, consistencia, completude, confiabilidade]]
+ '''
+
+# Retorna a matriz de confiabilidade, completude e consistencia de todas as fontes
+def indicadores_fatec_operacao(): 
+    #Criando a matriz, em que cada array recebe as fontes de forma ordenada
+    matriz_fatec_operacao = list([fonte] for fonte in indice_fontes)
+
+    print('matriz criada')
+    #a função abaixo retorna uma matriz com a fonte e a consistencia entre as duas series abaixo inseridas como argumento
+    consistenciaMatriz = consistencia(fatec_operacao, fatec_operacao['doc_cli'], pessoa_fisica['cpf'])
+
+    print('consistenciaMatriz criada')
+    #o loop abaixo adicionará à todas as listas da matriz "matriz_fatec_operacao" a consistência recebida acima
+    for linha in range(len(consistenciaMatriz)):
+        matriz_fatec_operacao[linha].append(consistenciaMatriz[linha][1])
+        
+    print('consistencia adicionada na matriz')
+    #O código abaixo fará a mesma adição na matriz, porém para o indicador de completude
+    completude = completude_fontes_opr()
+
+    print('função de completude chamada')
+    for linha in range(len(completude)):
+        matriz_fatec_operacao[linha].append(completude[linha][1])
+
+    print('completude adicionada à matriz')
+    print('começou a rodar a função do matheus')
+    #O código abaixo fará a mesma adição na matriz, porém para o indicador de confiabilidade
+    for fonte in range(len(matriz_fatec_operacao)):
+        porcentagem_invalida = documentosInvalidos(indice_fontes[fonte])[0]
+        confiabilidade = 100 - porcentagem_invalida
+        matriz_fatec_operacao[fonte].append(confiabilidade)
+
+    return matriz_fatec_operacao
+print('funções definidas, chamando função dos indicadores')
+indicadores = indicadores_fatec_operacao()
+
+for i in indicadores:
+    print(i)
+
+

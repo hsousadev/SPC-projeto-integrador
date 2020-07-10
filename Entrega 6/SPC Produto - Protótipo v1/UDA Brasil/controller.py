@@ -1,19 +1,16 @@
-from completude import completude_fontes_opr
-from consistencia import consistencia_id_operacao_mvt, consistencia_modalidade_opr
+#from completude import completude_fontes_opr
+#from consistencia import consistencia_id_operacao_mvt, consistencia_modalidade_opr
 from data import indice_fontes
+from operacao import indicadores_fatec_operacao
 
-consistencia_id_operacao_mvt = consistencia_id_operacao_mvt()
-consistencia_modalidade_opr = consistencia_modalidade_opr()
-completude_fontes_opr = completude_fontes_opr()
+operacao = indicadores_fatec_operacao()
 
+# consistencia_id_operacao_mvt = consistencia_id_operacao_mvt()
+# consistencia_modalidade_opr = consistencia_modalidade_opr()
+# completude_fontes_opr = completude_fontes_opr()
+'''
+GET_RANKING ANTIGO
 def get_ranking():
-
-    '''
-    for fonte in range(len(indice_fontes)):
-        media = (completude[fonte][1] + consistencia[fonte][1]) / 2 
-        ranking.append([f"{media:.2f}", completude[fonte][0], f"{completude[fonte][1]:.2f}", f"{consistencia[fonte][1]:.2f}"])
-        ranking.sort(reverse=True)
-    '''
 
     ranking = list()
     for fonte in range(len(indice_fontes)):
@@ -32,4 +29,27 @@ def get_ranking():
     for posicao in range(len(ranking)):
         ranking[posicao].append(posicao + 1)
                     
+    return ranking
+'''
+
+def get_ranking():
+    ranking = list()
+    
+    for fonte in range(len(indice_fontes)):
+        consistencia = operacao[fonte][1]
+        completude = operacao[fonte][2]
+        confiabilidade = operacao[fonte][3]
+        pontuacao = (consistencia + completude + confiabilidade) / 3
+        #A pontuação é adicionada primeiro para que o método sort possa ordenar a lista de acordo com a pontuação
+        
+        ranking.append([pontuacao, indice_fontes[fonte], completude, consistencia, confiabilidade])        
+    
+        #Aqui é realizada a ordenação, de forma reversa para a maior pontuação vir primeiro
+    
+    ranking.sort(reverse=True)
+
+    #Este for adiciona a colocação das fontes no ranking, na última posição de cada lista
+    for posicao in range(len(ranking)):
+        ranking[posicao].append(posicao + 1)
+    print('UAXINTON')
     return ranking

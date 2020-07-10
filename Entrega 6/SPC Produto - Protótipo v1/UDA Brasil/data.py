@@ -1,17 +1,35 @@
 import pandas as pd
-
+print('pandas importado')
 # Dados Principais
-         
-fatec_fonte = pd.read_excel("dados/importados/STG_FNT_ITT.xlsx")
-modalidade = pd.read_excel("dados/importados/STG_MDL.xlsx")
+
+if not 'fatec_fonte' in globals():      
+    fatec_fonte = pd.read_excel("dados/importados/STG_FNT_ITT.xlsx")
+    print('fatec_fonte criado')
+    
+if not 'modalidade' in globals():
+    modalidade = pd.read_excel("dados/importados/STG_MDL.xlsx")
+    print('modadlidade df criado')
+    
 #pagamento = pd.read_excel("dados/principais/STG_PGT.xlsx")
 #movimento = pd.read_excel("dados/principais/STG_MVT_CRD.xlsx")
 
 # Dados Complementares
-fatec_operacao = pd.read_excel("dados/importados/fatec_opr.xlsx")
-fatec_movimento = pd.read_excel("dados/importados/fatec_mvt.xlsx")
-fatec_pagamento = pd.read_excel("dados/importados/fatec_pgt.xlsx")
+if not 'fatec_operacao' in globals():
+    fatec_operacao = pd.read_excel("dados/importados/fatec_opr.xlsx")
+    print('fatec_operacao criado')
 
+if not 'fatec_movimento' in globals():    
+    fatec_movimento = pd.read_excel("dados/importados/fatec_mvt.xlsx")
+    print('movimento criado')
+
+if not 'fatec_pagamento' in globals():    
+    fatec_pagamento = pd.read_excel("dados/importados/fatec_pgt.xlsx")
+    print('fatec pagamento criado')
+
+if not 'pessoa_fisica' in globals():    
+    pessoa_fisica = pd.read_excel("dados/importados/fatec_pessoa_fisica.xlsx")
+    print('pessoa fisica criado')
+    
 def limpa_espacos(df):  # Removendo espaços dos campos das tabelas
     for coluna in df:
         coluna_temporaria = list()
@@ -28,7 +46,7 @@ dataframes = [fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, fate
 
 for df in dataframes:  # limpando todas as listas
     limpa_espacos(df)
-
+print('limpeza de df realizada')
                 
                 
 def adiciona_coluna_fonte(dataframe): # Nome do dataframe que voce deseja adicionar a coluna fonte
@@ -57,29 +75,41 @@ def adiciona_coluna_modalidade(dataframe):
     
     return dataframe.insert(loc = dataframe.shape[1], column = "cod_mdl", value = lista_modalidades)
 
-
+'''
 def coluna_fonte():
     dataframes = [fatec_movimento, fatec_pagamento]
     for dataframe in dataframes:
         adiciona_coluna_fonte(dataframe)
     return
 
+'''
 
 if 'id_fnt' not in fatec_pagamento or 'id_fnt' not in fatec_movimento:
     try:
-        coluna_fonte()
-        fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
-        fatec_pagamento.to_excel("dados/importados/fatec_pgt.xlsx", sheet_name = "tabela 1", index = False)
+        if 'id_fnt' not in fatec_pagamento:
+            print('adição de coluna fonte iniciada em pagamento')
+            adiciona_coluna_fonte(fatec_pagamento)
+            print('adição de coluna fonte finalizada em movimento')
+            fatec_pagamento.to_excel("dados/importados/fatec_pgt.xlsx", sheet_name = "tabela 1", index = False)
+            
+        if  'id_fnt' not in fatec_movimento:
+            print('adição de coluna fonte iniciada em movimento')
+            adiciona_coluna_fonte(fatec_movimento)
+            fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
+            print('adição de coluna fonte finalizada em movimento')
 
     except ValueError:
         pass
     
 if 'cod_mdl' not in fatec_movimento:
     try:
+        print('adição de coluna mdl iniciada')
         adiciona_coluna_modalidade(fatec_movimento)
         fatec_movimento.to_excel("dados/importados/fatec_mvt.xlsx", sheet_name = "tabela 1", index = False)
+        print('adição de coluna mdl finalizada')
 
     except ValueError:
         pass
 
 indice_fontes = list(set(fatec_operacao['id_fnt']))
+indice_fontes.sort()

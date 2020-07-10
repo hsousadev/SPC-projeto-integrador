@@ -35,12 +35,12 @@ def consistencia_id_mvt(fonte):
     idsInvalidos = list()
 
     
-    # dataframe = fatec_movimento[(fatec_movimento['id_fnt'] == fonte)]
-    # for index in list(dataframe['id_opr_cad_pos']):
-    #     if index not in list(fatec_operacao['id_opr_cad_pos']):
-    #         idsInvalidos.append(index)
-    # porcentagem = (len(idsInvalidos) / len(list(dataframe['id_opr_cad_pos']))) * 100
-    # return porcentagem, idsInvalidos
+    dataframe = fatec_movimento[(fatec_movimento['id_fnt'] == fonte)]
+    for index in list(dataframe['id_opr_cad_pos']):
+        if index not in list(fatec_operacao['id_opr_cad_pos']):
+            idsInvalidos.append(index)
+    porcentagem = (len(idsInvalidos) / len(list(dataframe['id_opr_cad_pos']))) * 100
+    return porcentagem, idsInvalidos
 
 
 def consistencia_id_operacao_mvt():
