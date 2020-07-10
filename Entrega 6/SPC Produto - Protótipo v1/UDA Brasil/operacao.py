@@ -78,8 +78,14 @@ def datasInvalidas_operacao(fonte):
     datas_invalidas = list()
     dataframe = fatec_operacao[(fatec_operacao['id_fnt'] == fonte)]
     for index in zip(list(dataframe['id_opr_cad_pos']), list(dataframe['dat_vct_ult_pcl'])):
-        if len(index[1]) < 8:
-            datas_invalidas.append(index)
+        try:
+            int(index[1])
+            if len(str(int(index[1]))) < 8 and len(str(int(index[1]))):
+                datas_invalidas.append(index[1])
+            
+        except ValueError:
+            datas_invalidas.append(index[1])
+
     porcentagem = (len(datas_invalidas) / dataframe.shape[0]) * 100
     return porcentagem, datas_invalidas
 
@@ -148,65 +154,46 @@ UNIÃO DOS TRÊS INDICADORES
 Abaixo estamos contatenando todas as funções no seu respectivo indicador
 '''
 
-# Irá conter todos os indicadores de confiabilidade da tabela fatec operacao
-# Serve para tirar a média de todos os indicadores de confiabilidade
-def indicador_confiabilidade(fonte):
-    documentos_invalidados = documentosInvalidos(fonte)
-    datas_invalidas = datasInvalidas_operacao(fonte)
-
-
-    valor = list(documentos_invalidados[0], datas_invalidas[0])
-    porcentagem = sum(valor) / len(valor)
-    return porcentagem
-
-# irá conter todos os indicadores de consistencia da tabela fatec operacao
-def indicador_consistencia(fonte): 
-    return
-
-
-'''
-A função abaixo concatenará todos os indicadores em uma matriz com o seguinte formato:
-
-[[fonte, consistencia, completude, confiabilidade],
- [fonte, consistencia, completude, confiabilidade],
- [fonte, consistencia, completude, confiabilidade]]
- '''
-
 # Retorna a matriz de confiabilidade, completude e consistencia de todas as fontes
 def indicadores_fatec_operacao(): 
     #Criando a matriz, em que cada array recebe as fontes de forma ordenada
     matriz_fatec_operacao = list([fonte] for fonte in indice_fontes)
-
     print('matriz criada')
+    
+    
     #a função abaixo retorna uma matriz com a fonte e a consistencia entre as duas series abaixo inseridas como argumento
     consistenciaMatriz = consistencia(fatec_operacao, fatec_operacao['doc_cli'], pessoa_fisica['cpf'])
-
     print('consistenciaMatriz criada')
+    
+    
     #o loop abaixo adicionará à todas as listas da matriz "matriz_fatec_operacao" a consistência recebida acima
     for linha in range(len(consistenciaMatriz)):
         matriz_fatec_operacao[linha].append(consistenciaMatriz[linha][1])
-        
     print('consistencia adicionada na matriz')
+    
+    
     #O código abaixo fará a mesma adição na matriz, porém para o indicador de completude
     completude = completude_fontes_opr()
-
     print('função de completude chamada')
+
+
     for linha in range(len(completude)):
         matriz_fatec_operacao[linha].append(completude[linha][1])
-
     print('completude adicionada à matriz')
+    
+
     print('começou a rodar a função do matheus')
     #O código abaixo fará a mesma adição na matriz, porém para o indicador de confiabilidade
     for fonte in range(len(matriz_fatec_operacao)):
-        porcentagem_invalida = documentosInvalidos(indice_fontes[fonte])[0]
+        porcentagem_invalida = (documentosInvalidos(indice_fontes[fonte])[0] - datasInvalidas_operacao(indice_fontes[fonte])[0]) / 2
         confiabilidade = 100 - porcentagem_invalida
         matriz_fatec_operacao[fonte].append(confiabilidade)
 
+
     return matriz_fatec_operacao
+
 print('funções definidas, chamando função dos indicadores')
 indicadores = indicadores_fatec_operacao()
 
 for i in indicadores:
     print(i)
-
-

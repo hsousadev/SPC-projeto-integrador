@@ -51,5 +51,5 @@ def get_ranking():
     #Este for adiciona a colocação das fontes no ranking, na última posição de cada lista
     for posicao in range(len(ranking)):
         ranking[posicao].append(posicao + 1)
-    print('UAXINTON')
+    print('Retornando ranking')
     return ranking
