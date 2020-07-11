@@ -66,6 +66,7 @@ def validaNumerico(df, colunas):
     return matriz
 
 
+
 '''
 CONSISTÊNCIA
 '''

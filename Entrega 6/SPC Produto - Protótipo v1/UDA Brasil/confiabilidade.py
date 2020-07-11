@@ -138,6 +138,12 @@ def valida_data_pagamento():
     return matriz_confiabilidade
 
 
+'''
+FUNÇÃO ANTIGA
+
+A NOVA FUNÇÃO REMODELADA ESTÁ NOS ARQUIVOS operacao.py e movimento.py
+
+
 def validaNumerico(df, coluna):
     contInvalidos = int()
     camposInvalidos = list()
@@ -157,7 +163,7 @@ def validaNumerico(df, coluna):
     except ZeroDivisionError:
         porcentagem = 100
         
-    return porcentagem, camposInvalidos
+    return porcentagem, camposInvalidos'''
 
 
 
