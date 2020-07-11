@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request, flash, session
 from werkzeug.utils import secure_filename
 from controller import get_ranking
 
@@ -29,14 +29,18 @@ def rank():
     return render_template('ranking.html', ranking=ranking)
 
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
     # A variável "file" recebe o arquivo vindo da requisição
     file = request.files['inputFile']
     savePath = os.path.join(UPLOAD_FOLDER, secure_filename(file.filename))
     file.save(savePath)
+    flash(f'Arquivo {file.filename} enviado com sucesso', 'info')
     return redirect(url_for('screen2'))
 
 
 if __name__ == "__main__":
+    app.secret_key = 'super secret key'
+    
+
     app.run(debug=True)

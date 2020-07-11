@@ -16,6 +16,14 @@
 </head>
 
 <body>
+  <div>
+  
+  {% for message in get_flashed_messages() %}
+    <p>{{ message }}</p>
+  {% endfor %}
+  
+  </div>
+  
   <div id="bt_sair">
     <label id="label_bt_sair">
       Sair
