@@ -2,8 +2,12 @@
 #from consistencia import consistencia_id_operacao_mvt, consistencia_modalidade_opr
 from data import indice_fontes
 from operacao import indicadores_fatec_operacao
+from movimento import indicadores_fatec_movimento
+from pagamento import indicadores_fatec_pagamento
 
 operacao = indicadores_fatec_operacao()
+movimento = indicadores_fatec_movimento()
+pagamento = indicadores_fatec_pagamento()
 
 # consistencia_id_operacao_mvt = consistencia_id_operacao_mvt()
 # consistencia_modalidade_opr = consistencia_modalidade_opr()
@@ -36,18 +40,18 @@ def get_ranking():
     ranking = list()
     
     for fonte in range(len(indice_fontes)):
-        consistencia = operacao[fonte][1]
-        completude = operacao[fonte][2]
-        confiabilidade = operacao[fonte][3]
-        pontuacao = (consistencia + completude + confiabilidade) / 3
-        #A pontuação é adicionada primeiro para que o método sort possa ordenar a lista de acordo com a pontuação
-        
-        ranking.append([pontuacao, indice_fontes[fonte], completude, consistencia, confiabilidade])        
+        media_completude = (operacao[fonte][1] + pagamento[fonte][1] + movimento[fonte][1]) / 3
+        media_consistencia = (operacao[fonte][2] + pagamento[fonte][2] + movimento[fonte][2]) / 3
+        media_confiabilidade = (operacao[fonte][3] + pagamento[fonte][3] + movimento[fonte][3]) / 3
+
+        pontuacao = (media_completude + media_consistencia + media_confiabilidade) / 3
+
+        ranking.append([pontuacao, indice_fontes[fonte], f'{media_completude:.2f}', f'{media_consistencia:.2f}', f'{media_confiabilidade:.2f}'])        
     
         #Aqui é realizada a ordenação, de forma reversa para a maior pontuação vir primeiro
     
     ranking.sort(reverse=True)
-
+    
     #Este for adiciona a colocação das fontes no ranking, na última posição de cada lista
     for posicao in range(len(ranking)):
         ranking[posicao].append(posicao + 1)

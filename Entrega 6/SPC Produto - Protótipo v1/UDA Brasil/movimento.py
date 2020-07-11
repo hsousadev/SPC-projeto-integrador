@@ -7,8 +7,54 @@ print(" * Dados importados")
 
 
 
+def completude(DataFrame):
+    '''
+    As matriz abaixo armazenará os campos incompletos de cada fonte, no seguinte formato
+    [fonte, quantidade_incompletos]
+    [fonte, quantidade_incompletos]...
+    '''
+    matriz_fontes_incompletos = list([fonte, 0] for fonte in indice_fontes)
+    
+    for linha in range(DataFrame.shape[0]):
+        if DataFrame.iloc[linha].isnull().sum() > 0 or list(DataFrame.iloc[linha]).count('NULL') > 0: #Checando se há algum campo nulo na linha, tanto NaN quanto 'NULL'
+            fonte = DataFrame.iloc[linha]['id_fnt']
+            posicao = indice_fontes.index(fonte)
+            #Somando o segundo valor da array à soma de campos nulos encontrados na linha
+            matriz_fontes_incompletos[posicao][1] += DataFrame.iloc[linha].isnull().sum() + list(DataFrame.iloc[linha]).count('NULL')
+    
+    matriz_completude_porcentagem = list()
+
+    for fonte in range(len(indice_fontes)):
+        #A variável abaixo registra quantos campos existem referentes à fonte possuem a fonte em questão. 
+        # Estamos multiplicando pela quantidade de colunas - 1 pois uma das colunas apenas identifica a fonte.
+        campos_fonte_total = DataFrame.query(f'id_fnt == {indice_fontes[fonte]}')['id_fnt'].count() * (DataFrame.shape[1] - 1)
+        campos_incompletos = matriz_fontes_incompletos[fonte][1]
+        porcentagem = 100 - ((campos_incompletos / campos_fonte_total) * 100)
+        matriz_completude_porcentagem.append([indice_fontes[fonte], porcentagem])
+    
+    return matriz_completude_porcentagem
+
+
 
 #Este arquivo irá análisar cada fonte e retornará os indicadores ja calculados
+
+
+'''
+CONSISTÊNCIA
+'''
+
+def consistencia(df_base, series_base, series_referencia):
+    matriz = list([fonte] for fonte in indice_fontes)
+    for fonte in indice_fontes:
+        campos_inconsistentes = list()
+        for campo in range(len(series_base)):
+            if df_base['id_fnt'][campo] == fonte and campo not in series_referencia:
+                campos_inconsistentes.append(campo)
+        
+        porcentagem = 100 - (len(campos_inconsistentes) / len(series_base)) * 100
+        matriz[indice_fontes.index(fonte)].append(porcentagem)
+    
+    return matriz
 
 
 '''
@@ -66,26 +112,6 @@ def validaNumerico(df, colunas):
     return matriz
 
 
-
-'''
-CONSISTÊNCIA
-'''
-
-def consistencia(df_base, series_base, series_referencia):
-    matriz = list([fonte] for fonte in indice_fontes)
-    for fonte in indice_fontes:
-        campos_inconsistentes = list()
-        for campo in range(len(series_base)):
-            if df_base['id_fnt'][campo] == fonte and campo not in series_referencia:
-                campos_inconsistentes.append(campo)
-        
-        porcentagem = 100 - (len(campos_inconsistentes) / len(series_base)) * 100
-        matriz[indice_fontes.index(fonte)].append(porcentagem)
-    
-    return matriz
-
-
-
 '''
 UNIÃO DOS TRÊS INDICADORES
 Abaixo estamos concatenando todas as funções no seu respectivo indicador
@@ -95,6 +121,15 @@ def indicadores_fatec_movimento():
     # Criando a matriz, em que cada array recebe as fontes de forma ordena
     matriz_fatec_movimento = list([fonte] for fonte in indice_fontes)
     print(" * Matriz MOVIMENTO criada")
+
+    #COMPLETUDE
+    # A função abaixo retorna uma matriz com a fonte e a completude dos campos do dataframe
+
+    matriz_completude = completude(fatec_movimento)
+
+    print(" * Matriz completude criada")
+    for fonte in range(len(indice_fontes)):
+        matriz_fatec_movimento[fonte].append(matriz_completude[fonte][1])
 
     # CONSISTENCIA
     # A função abaixo retorna uma matriz com a fonte e a consistência entre as duas series abaixo inseridas como argumento
@@ -106,10 +141,6 @@ def indicadores_fatec_movimento():
     for linha in range(len(consistenciaMatriz)):
         matriz_fatec_movimento[linha].append(consistenciaMatriz[linha][1])
     print(" * Consistência adicionada a matriz")
-
-
-
-
 
 
     # CONFIABILIDADE

@@ -190,7 +190,15 @@ def indicadores_fatec_operacao():
     #Criando a matriz, em que cada array recebe as fontes de forma ordenada
     matriz_fatec_operacao = list([fonte] for fonte in indice_fontes)
     print('matriz criada')
-    
+
+    #O código abaixo fará a mesma adição na matriz, porém para o indicador de completude
+    completude = completude_fontes_opr()
+    print('função de completude chamada')
+
+    for linha in range(len(completude)):
+        matriz_fatec_operacao[linha].append(completude[linha][1])
+    print('completude adicionada à matriz')
+
     
     #a função abaixo retorna uma matriz com a fonte e a consistencia entre as duas series abaixo inseridas como argumento
     consistenciaMatriz = consistencia(fatec_operacao, fatec_operacao['doc_cli'], pessoa_fisica['cpf'])
@@ -201,16 +209,6 @@ def indicadores_fatec_operacao():
     for linha in range(len(consistenciaMatriz)):
         matriz_fatec_operacao[linha].append(consistenciaMatriz[linha][1])
     print('consistencia adicionada na matriz')
-    
-    
-    #O código abaixo fará a mesma adição na matriz, porém para o indicador de completude
-    completude = completude_fontes_opr()
-    print('função de completude chamada')
-
-
-    for linha in range(len(completude)):
-        matriz_fatec_operacao[linha].append(completude[linha][1])
-    print('completude adicionada à matriz')
     
 
     print('começou a rodar a função do matheus')
