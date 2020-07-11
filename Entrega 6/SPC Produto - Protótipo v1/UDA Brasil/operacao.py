@@ -1,7 +1,8 @@
+print("\n##########  TABELA OPERAÇÃO  ##########")
 import pandas as pd
 from data import fatec_operacao, fatec_fonte, indice_fontes, modalidade, pessoa_fisica
 
-print('dados importados')
+print(' * Dados importados')
 # Declarando variáveis globais
 
 referencia_fonte = list(fatec_operacao['id_fnt'])
@@ -189,29 +190,27 @@ Abaixo estamos contatenando todas as funções no seu respectivo indicador
 def indicadores_fatec_operacao(): 
     #Criando a matriz, em que cada array recebe as fontes de forma ordenada
     matriz_fatec_operacao = list([fonte] for fonte in indice_fontes)
-    print('matriz criada')
+    print(' * Matriz criada')
 
     #O código abaixo fará a mesma adição na matriz, porém para o indicador de completude
     completude = completude_fontes_opr()
-    print('função de completude chamada')
+    print(' * Função de completude chamada')
 
     for linha in range(len(completude)):
         matriz_fatec_operacao[linha].append(completude[linha][1])
-    print('completude adicionada à matriz')
 
     
     #a função abaixo retorna uma matriz com a fonte e a consistencia entre as duas series abaixo inseridas como argumento
     consistenciaMatriz = consistencia(fatec_operacao, fatec_operacao['doc_cli'], pessoa_fisica['cpf'])
-    print('consistenciaMatriz criada')
+    print(' * Matriz consistência criada')
     
     
     #o loop abaixo adicionará à todas as listas da matriz "matriz_fatec_operacao" a consistência recebida acima
     for linha in range(len(consistenciaMatriz)):
         matriz_fatec_operacao[linha].append(consistenciaMatriz[linha][1])
-    print('consistencia adicionada na matriz')
     
 
-    print('começou a rodar a função do matheus')
+    print(' * Matriz confiabilidade criada')
     #O código abaixo fará a mesma adição na matriz, porém para o indicador de confiabilidade
     colunas = ['vlr_ctrd_fta_tfm', 'sdo_ddr_tfm', 'vlr_ctrd']
     valida_Numerico = validaNumerico(fatec_operacao, colunas)
@@ -219,11 +218,14 @@ def indicadores_fatec_operacao():
         media_porcentagem_invalida = (documentosInvalidos(indice_fontes[fonte])[0] + datasInvalidas_operacao(indice_fontes[fonte])[0] + valida_Numerico[fonte][1]) / 3
         confiabilidade = 100 - media_porcentagem_invalida
         matriz_fatec_operacao[fonte].append(confiabilidade)
-    
+
+    print(' * Matriz Final Criada --------- OPERAÇÃO')
     return matriz_fatec_operacao
 
-print('funções definidas, chamando função dos indicadores')
-indicadores = indicadores_fatec_operacao()
+print(' * Funções definidas, chamando função dos indicadores')
 
-for i in indicadores:
-    print(i)
+
+print(' * INDICADORES DA TABELA OPERAÇÃO')
+for fonte in indicadores_fatec_operacao():
+    print(fonte)
+print('\n')

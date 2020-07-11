@@ -46,7 +46,7 @@ def get_ranking():
 
         pontuacao = (media_completude + media_consistencia + media_confiabilidade) / 3
 
-        ranking.append([pontuacao, indice_fontes[fonte], f'{media_completude:.2f}', f'{media_consistencia:.2f}', f'{media_confiabilidade:.2f}'])        
+        ranking.append([f'{pontuacao:.2f}', indice_fontes[fonte], f'{media_completude:.2f}', f'{media_consistencia:.2f}', f'{media_confiabilidade:.2f}'])        
     
         #Aqui é realizada a ordenação, de forma reversa para a maior pontuação vir primeiro
     
@@ -55,5 +55,5 @@ def get_ranking():
     #Este for adiciona a colocação das fontes no ranking, na última posição de cada lista
     for posicao in range(len(ranking)):
         ranking[posicao].append(posicao + 1)
-    print('Retornando ranking')
+    print('Retornando ranking \n\n')
     return ranking

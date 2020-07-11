@@ -1,5 +1,5 @@
 import pandas as pd
-print(' * Biblioteca Pandas importada')
+print('\n\n * Biblioteca Pandas importada')
 # Dados Principais
 
 if 'fatec_fonte' not in globals():      

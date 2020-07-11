@@ -1,4 +1,6 @@
+print("\n##########  TABELA PAGAMENTO  ##########")
 from data import fatec_pagamento, fatec_movimento, fatec_operacao, modalidade, indice_fontes
+print(" * Dados importados")
 
 '''
 COMPLETUDE
@@ -98,6 +100,7 @@ def indicadores_fatec_pagamento():
     #completude, consistência, confiabilidade
     #Gerando a matriz de completude
     matriz_completude = completude(fatec_pagamento)
+    print(" * Matriz completude criada")
 
     #O indicador de consistência receberá estes 3 valores. A consistência de "id_opr_cad_pos", "id_mvt_cad_pos" e "cod_mdl" nas tabelas de referência
     matriz_consistencia_opr = consistencia(fatec_pagamento, fatec_pagamento['id_opr_cad_pos'], fatec_operacao['id_opr_cad_pos'])
@@ -108,11 +111,15 @@ def indicadores_fatec_pagamento():
     for fonte in range(len(indice_fontes)):
         media = (matriz_consistencia_opr[fonte][1] + matriz_consistencia_mvt[fonte][1] + matriz_consistencia_mdl[fonte][1]) / 3
         matriz_consistencia.append([indice_fontes[fonte], media])
+    print(" * Matriz consistencia criada")
 
     colunas_analisadas = ['vlr_pgt_tfm']
     confiabilidade = validaNumerico(fatec_pagamento, colunas_analisadas)
+    print(" * Matriz confiabilidade criada")
+
 
     matriz_final = list([fonte] for fonte in indice_fontes)
+    print(' * Matriz Final Criada --------- PAGAMENTO')
 
     for fonte in range(len(indice_fontes)):
         #adicionando completude
@@ -123,10 +130,13 @@ def indicadores_fatec_pagamento():
         matriz_final[fonte].append(confiabilidade[fonte][1])
     
     return matriz_final 
+print(" * Funções definidas . . . Chamando função dos indicadores")
 
-for i in indicadores_fatec_pagamento():
-    print(i)
-    
+
+print(' * INDICADORES DA TABELA MOVIMENTO')
+for fonte in indicadores_fatec_pagamento():
+    print(fonte)
+print('\n')
     
 
 

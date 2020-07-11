@@ -1,4 +1,4 @@
-print("##########  TABELA MOVIMENTO  ##########")
+print("\n##########  TABELA MOVIMENTO  ##########")
 import pandas as pd 
 from data import fatec_movimento, fatec_operacao, fatec_fonte, indice_fontes
 print(" * Dados importados")
@@ -123,7 +123,6 @@ Abaixo estamos concatenando todas as funções no seu respectivo indicador
 def indicadores_fatec_movimento():
     # Criando a matriz, em que cada array recebe as fontes de forma ordena
     matriz_fatec_movimento = list([fonte] for fonte in indice_fontes)
-    print(" * Matriz MOVIMENTO criada")
 
     #COMPLETUDE
     # A função abaixo retorna uma matriz com a fonte e a completude dos campos do dataframe
@@ -143,7 +142,6 @@ def indicadores_fatec_movimento():
     # O loop abaixo adicionará à todas as listas da matriz "matriz_fatec_operacao" a consistência recebida acima
     for linha in range(len(consistenciaMatriz)):
         matriz_fatec_movimento[linha].append(consistenciaMatriz[linha][1])
-    print(" * Consistência adicionada a matriz")
 
 
     # CONFIABILIDADE
@@ -153,10 +151,12 @@ def indicadores_fatec_movimento():
         confiabilidade = 100 - porcentagem_invalida
         matriz_fatec_movimento[fonte].append(confiabilidade)
 
-
+    print(' * Matriz Final Criada --------- MOVIMENTO')
     return matriz_fatec_movimento
-print(" * Funções definidas . . . Chamando função dos indicadores")
-indicadores = indicadores_fatec_movimento()
+print(" * Funções definidas, Chamando função dos indicadores")
 
-for fonte in indicadores:
+
+print(' * INDICADORES DA TABELA MOVIMENTO')
+for fonte in indicadores_fatec_movimento():
     print(fonte)
+print('\n')
