@@ -150,6 +150,7 @@ def indicadores_fatec_movimento():
         porcentagem_invalida = datasInvalidas_movimento(indice_fontes[fonte])[0]
         confiabilidade = 100 - porcentagem_invalida
         matriz_fatec_movimento[fonte].append(confiabilidade)
+    print(' * Matriz confiabilidade criada')
 
     print(' * Matriz Final Criada --------- MOVIMENTO')
     return matriz_fatec_movimento
