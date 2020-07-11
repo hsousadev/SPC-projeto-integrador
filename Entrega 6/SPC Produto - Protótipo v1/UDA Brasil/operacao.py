@@ -21,8 +21,6 @@ def validaCpf(cpf, d1=0, d2=0, i=0):
     return (int(cpf[9])==(11-d1 if d1>1 else 0)) and (int(cpf[10])==(11-d2 if d2>1 else 0))
 
 
-
-
 def validaCnpj(cnpj):
     str(cnpj)
 
@@ -90,7 +88,7 @@ def datasInvalidas_operacao(fonte):
     return porcentagem, datas_invalidas
 
 
-    def verifica_valor(df, coluna, fonte):
+def verifica_valor(df, coluna, fonte):
     campos_invalidos = list()
     
     for index in zip(df[coluna], df['id_fnt']):
@@ -217,12 +215,13 @@ def indicadores_fatec_operacao():
 
     print('começou a rodar a função do matheus')
     #O código abaixo fará a mesma adição na matriz, porém para o indicador de confiabilidade
+    colunas = ['vlr_ctrd_fta_tfm', 'sdo_ddr_tfm', 'vlr_ctrd']
+    valida_Numerico = validaNumerico(fatec_operacao, colunas)
     for fonte in range(len(matriz_fatec_operacao)):
-        porcentagem_invalida = (documentosInvalidos(indice_fontes[fonte])[0] - datasInvalidas_operacao(indice_fontes[fonte])[0]) / 2
-        confiabilidade = 100 - porcentagem_invalida
+        media_porcentagem_invalida = (documentosInvalidos(indice_fontes[fonte])[0] + datasInvalidas_operacao(indice_fontes[fonte])[0] + valida_Numerico[fonte][1]) / 3
+        confiabilidade = 100 - media_porcentagem_invalida
         matriz_fatec_operacao[fonte].append(confiabilidade)
-
-
+    
     return matriz_fatec_operacao
 
 print('funções definidas, chamando função dos indicadores')
