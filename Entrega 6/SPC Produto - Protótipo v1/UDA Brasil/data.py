@@ -46,7 +46,7 @@ dataframes = [fatec_operacao, fatec_movimento, fatec_pagamento, modalidade, fate
 
 for df in dataframes:  # limpando todas as listas
     limpa_espacos(df)
-print(' * Limpeza dos campos nos DataFrames realizada')
+print(' * Limpeza dos campos nos DataFrames realizada \n\n')
                 
                 
 def adiciona_coluna_fonte(dataframe): # Nome do dataframe que voce deseja adicionar a coluna fonte
