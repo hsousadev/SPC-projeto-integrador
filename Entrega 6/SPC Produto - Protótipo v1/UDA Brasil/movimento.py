@@ -5,6 +5,9 @@ print(" * Dados importados")
 
 # DECLARANDO VARIAVEIS GLOBAIS
 
+'''
+COMPLETUDE
+'''
 
 
 def completude(DataFrame):
