@@ -68,9 +68,9 @@ Entenda o processo da aplicação desde o input dos dados até a entrega
 Para executar nossa aplicação:
 
 - Versão do Python 3.5 +
-- * `$git clone https://github.com/justhenrique/SPC-projeto-integrador.git`
-- * `$pip install -r requirements.txt`
-- * `$pip python run.py`
+- * `$ git clone https://github.com/justhenrique/SPC-projeto-integrador.git`
+- * `$ pip install -r requirements.txt`
+- * `$ pip python run.py`
 
 
 
