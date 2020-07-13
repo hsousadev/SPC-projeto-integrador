@@ -25,7 +25,7 @@ Todos os usuários deverão por segurança serem autenticados na plataforma, a e
 
 Ao receber as remessas de dados a plataforma por meio de um ranking, em sua área principal, irá classificar as melhores empresas com base nos indicadores analisados. Assim o cliente poderá concluir quais são as empresas com melhores pontuações e as que estão em situação emergenciais. 
 
-No exemplo abaixo, além do ranking, a tabela "Operação" é pautada com todos os seus dados análisados. De modo prático o usuário final pode acessar painel de opções e escolher quais tabelas pode verificar a qualidade. 
+No exemplo abaixo, além do ranking, a tabela "Operação" é pautada com todos os seus dados análisados. De modo prático o usuário final pode acessar painel de opções e escolher quais tabelas verificar a qualidade. 
 
 ![2 Operacao](https://user-images.githubusercontent.com/54003876/87262786-9528c300-c491-11ea-93da-8d29e2e090e3.gif)
 
@@ -50,11 +50,29 @@ Ao final de cada interação, todos os processos realizados ficam seguros aos au
 ![07 -Final](https://user-images.githubusercontent.com/54003876/87263237-ec7b6300-c492-11ea-8654-0cc86e28cc72.gif)
 
 
-## Fluxograma de funcionalidade da aplicação:
+## Funcionalidade da aplicação:
+
 Entenda o processo da aplicação desde o input dos dados até a entrega
+
 ![fluxograma_entrega4spc](https://user-images.githubusercontent.com/54003876/84607266-b4c4cf80-ae82-11ea-9104-2166954a5197.png)
 
 
 ## Cards da Sprint 6 
+
 - [Acesse os CARDS aqui](https://github.com/justhenrique/SPC-projeto-integrador/projects/8)
 ![Capture](https://user-images.githubusercontent.com/54003876/87263667-47618a00-c494-11ea-9b0e-872f95223aaf.PNG)
+
+
+## Requisitos para uso
+
+Para executar nossa aplicação:
+
+- Versão do Python 3.5 +
+- * `$git clone https://github.com/justhenrique/SPC-projeto-integrador.git`
+- * `$pip install -r requirements.txt`
+- * `$pip python run.py`
+
+
+
+
+
