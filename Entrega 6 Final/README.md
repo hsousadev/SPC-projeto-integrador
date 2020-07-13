@@ -58,4 +58,4 @@ Entenda o processo da aplicação desde o input dos dados até a entrega
 
 ## Cards da Sprint 6 
 - [Acesse os CARDS aqui](https://github.com/justhenrique/SPC-projeto-integrador/projects/8)
-![image](https://user-images.githubusercontent.com/54003876/85962187-c24f7e80-b985-11ea-95a9-cbc50576f60e.png)
+![Capture](https://user-images.githubusercontent.com/54003876/87263667-47618a00-c494-11ea-9b0e-872f95223aaf.PNG)
